@@ -33,14 +33,14 @@ include::src/about-arc42.adoc[]
 ***
 
 [role="arc42help"]
-****
-[NOTE]
-====
-Diese Version des Templates enthält Hilfen und Erläuterungen.
-Sie dient der Einarbeitung in arc42 sowie dem Verständnis der Konzepte.
-Für die Dokumentation eigener System verwenden Sie besser die _plain_ Version.
-====
-****
+//****
+//[NOTE]
+//====
+//Diese Version des Templates enthält Hilfen und Erläuterungen.
+//Sie dient der Einarbeitung in arc42 sowie dem Verständnis der Konzepte.
+//Für die Dokumentation eigener System verwenden Sie besser die _plain_ Version.
+//====
+//****
 
 
 // numbering from here on
