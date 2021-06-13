@@ -1,6 +1,8 @@
 [[section-solution-strategy]]
 == Lösungsstrategie
-
+//https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_understand_architecture_and_workflow.md
+//https://github.com/ApolloAuto/apollo/tree/master/modules/common/proto Kommunikationsprotokolle als Protobuf, mit welchen Fehler, Richtungen etc. kommuniziert werden.
+//https://github.com/ApolloAuto/apollo/tree/master/modules/canbus Kommunikation im CAN-Bus
 [role="arc42help"]
 ****
 .Inhalt
