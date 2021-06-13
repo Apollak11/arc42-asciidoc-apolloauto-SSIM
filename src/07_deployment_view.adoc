@@ -76,3 +76,6 @@ _<Diagramm + Erläuterungen>_
 ==== _<Infrastrukturelement n>_
 
 _<Diagramm + Erläuterungen>_
+
+
+Unabhängig von der Installation, welche implementiert werden soll, muss stets zunächst die Apollo Version 1.0 installiert werden.
