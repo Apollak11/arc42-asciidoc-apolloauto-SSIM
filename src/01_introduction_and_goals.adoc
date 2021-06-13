@@ -69,6 +69,16 @@ Die vorliegende Architektur soll verschiedene Anwendungen ermöglichen. Einige m
 //
 //.Form
 //Tabellarische Darstellung der Qualitätsziele mit möglichst konkreten Szenarien, geordnet nach Prioritäten.
+
+[cols="1,2" options="header"]
+|===
+|Qualitätsziel | Erläuterung
+| _Schnelle Entwicklung autonomer Fahrzeuge_ | _ _
+| _Schnelle Tests von autonomen Fahrzeugen_ | _ _
+| _Flexible Architektur_ | _ _ 
+| _Verständliche Darstellung_ | _Entwickler, die nicht bei Baidu arbeiten, müssen mit dem vorliegenden Code und den gegebenen Beschreibungen des Systems zurechtkommen_
+|===
+
 ****
 
 === Stakeholder
@@ -95,7 +105,7 @@ Die vorliegende Architektur soll verschiedene Anwendungen ermöglichen. Einige m
 |===
 |Rolle |Erwartungshaltung
 | _Baidu_ | _Weiterentwicklung des autonomen Fahrens und von V2X-Anwendungen_
-| _<Rolle-2>_ | _<Erwartung-2>_ 
+| _Unabhängige Entwickler_ | _Ziel ist die Entwicklung von Tools, um Produkte für das autonome Fahren zu entwickeln. Die Einarbeitung in das System muss dafür ermöglicht werden._ 
 |===
 
 ****
