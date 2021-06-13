@@ -3,15 +3,61 @@
 
 [role="arc42help"]
 ****
-.Inhalt
-Randbedingungen und Vorgaben, die ihre Freiheiten bezüglich Entwurf, Implementierung oder Ihres Entwicklungsprozesses einschränken.
-Diese Randbedingungen gelten manchmal organisations- oder firmenweit über die Grenzen einzelner Systeme hinweg.
+//.Inhalt
+//Randbedingungen und Vorgaben, die ihre Freiheiten bezüglich Entwurf, Implementierung oder Ihres Entwicklungsprozesses einschränken.
+//Diese Randbedingungen gelten manchmal organisations- oder firmenweit über die Grenzen einzelner Systeme hinweg.
+//
+//.Motivation
+//Für eine tragfähige Architektur sollten Sie genau wissen, wo Ihre Freiheitsgrade bezüglich der Entwurfsentscheidungen liegen und wo Sie Randbedingungen beachten müssen.
+//Sie können Randbedingungen vielleicht noch verhandeln, zunächst sind sie aber da.
+//
+//.Form
+//Einfache Tabellen der Randbedingungen mit Erläuterungen.
+//Bei Bedarf unterscheiden Sie technische, organisatorische und politische Randbedingungen oder übergreifende Konventionen (beispielsweise Programmier- oder Versionierungsrichtlinien, Dokumentations- oder Namenskonvention).
 
-.Motivation
-Für eine tragfähige Architektur sollten Sie genau wissen, wo Ihre Freiheitsgrade bezüglich der Entwurfsentscheidungen liegen und wo Sie Randbedingungen beachten müssen.
-Sie können Randbedingungen vielleicht noch verhandeln, zunächst sind sie aber da.
+****
 
-.Form
-Einfache Tabellen der Randbedingungen mit Erläuterungen.
-Bei Bedarf unterscheiden Sie technische, organisatorische und politische Randbedingungen oder übergreifende Konventionen (beispielsweise Programmier- oder Versionierungsrichtlinien, Dokumentations- oder Namenskonvention).
+=== Technische Randbedingungen
+[role="arc42help"]
+****
+
+[cols="1,3" options="header"]
+|===
+|Randbedingung |Erläuterung 
+| _Drive-by-Wire_ | _Fahren und Steuern der Fahrzeuge muss ohne mechanische Kraftübertragung möglich sein. Dazu gehören Lenkung, Bremsen, Gas und Schaltvorgänge._
+| _Prozessor und RAM_ | _8-Kern Prozessor mit mindestens 16GB Arbeitsspeicher_
+| _GPU_ | _Eine NVIDIA Turing GPU wird empfohlen_
+| _Betriebssystem_ | _Ubuntu 18.04_
+| _GPU-Treiber_ | _NVIDIA 455.32.00 Treiber sowie alle nachfolgenden Versionen_ (https://www.nvidia.com/Download/index.aspx?lang=en-us[Nvidia Treiber])
+| _Docker_ | _Docker-CE 19.03 sowie alle nachfolgenden Versionen_ (https://docs.docker.com/engine/install/ubuntu/[Installation von Docker auf Ubuntu])
+| _NVIDIA Container Toolkit_ | _NVIDIA 455.32.00 Treiber sowie alle nachfolgenden Versionen_ (https://github.com/NVIDIA/nvidia-docker[NVIDIA-Docker Github Link])
+|===
+
+
+****
+
+=== Organisatorische Randbedingungen
+[role="arc42help"]
+****
+
+[cols="1,1,2" options="header"]
+|===
+|Rolle |Kontakt |Erwartungshaltung
+| _<Rolle-1>_ | _<Kontakt-1>_ | _<Erwartung-1>_
+| _<Rolle-2>_ | _<Kontakt-2>_ | _<Erwartung-2>_ 
+|===
+
+****
+
+=== Konventionen
+[role="arc42help"]
+****
+
+[cols="1,1,2" options="header"]
+|===
+|Rolle |Kontakt |Erwartungshaltung
+| _<Rolle-1>_ | _<Kontakt-1>_ | _<Erwartung-1>_
+| _<Rolle-2>_ | _<Kontakt-2>_ | _<Erwartung-2>_ 
+|===
+
 ****
