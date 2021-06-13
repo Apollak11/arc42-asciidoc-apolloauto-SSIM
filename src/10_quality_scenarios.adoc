@@ -1,6 +1,8 @@
 [[section-quality-scenarios]]
 == Qualitätsanforderungen
-
+//https://github.com/ApolloAuto/apollo/blob/master/docs/howto/README.md
+//https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/FAQs/General_FAQs.md
+//https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/FAQs/Software_FAQs.md
 [role="arc42help"]
 ****
 .Inhalt
