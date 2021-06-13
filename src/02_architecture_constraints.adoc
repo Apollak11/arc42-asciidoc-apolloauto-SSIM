@@ -21,10 +21,14 @@
 [role="arc42help"]
 ****
 
+Die technischen Randbedingungen beziehen sich auf die aktuelle Version Apollo 6.0.
+Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Installation und welche an das Auto gestellt werden.
+
+.Installationsanforderungen
+
 [cols="1,3" options="header"]
 |===
 |Randbedingung |Erläuterung 
-| _Drive-by-Wire_ | _Fahren und Steuern der Fahrzeuge muss ohne mechanische Kraftübertragung möglich sein. Dazu gehören Lenkung, Bremsen, Gas und Schaltvorgänge._
 | _Prozessor und RAM_ | _8-Kern Prozessor mit mindestens 16GB Arbeitsspeicher_
 | _GPU_ | _Eine NVIDIA Turing GPU wird empfohlen_
 | _Betriebssystem_ | _Ubuntu 18.04_
@@ -33,6 +37,23 @@
 | _NVIDIA Container Toolkit_ | _NVIDIA 455.32.00 Treiber sowie alle nachfolgenden Versionen_ (https://github.com/NVIDIA/nvidia-docker[NVIDIA-Docker Github Link])
 |===
 
+.Anforderungen an das korrespondierende Fahrzeug
+
+[cols="1,3" options="header"]
+|===
+|Randbedingung |Erläuterung 
+| _Drive-by-Wire_ | _Fahren und Steuern der Fahrzeuge muss ohne mechanische Kraftübertragung möglich sein. Dazu gehören Lenkung, Bremsen, Gas und Schaltvorgänge._
+| _Sensorik_ | _Mehrere LiDAR- und Radar-Sensoren zur besseren Auffassung der Umgebung_
+| _Kameras_ | _Seitliche und Frontkameras zur Umgebungsaufnahme_
+| _GPS_ | _GPS-Antenne und Receiver zur Lokalisierung des Fahrzeugs_
+| _IMU_ | _Inertiale Messeinheit zur Aufnahme verschiedener Sensordaten zum Fahrzeug_
+|===
+
+Der Aufbau eines solchen Fahrzeugs kann dem nachfolgenden Bild entnommen werden.
+
+image::FahrzeuganforderungenApolloAuto.png
+
+Die Spezifikationen anderer Versionen können der https://github.com/ApolloAuto/apollo[Github Seite] entnommen werden.
 
 ****
 
@@ -40,11 +61,13 @@
 [role="arc42help"]
 ****
 
-[cols="1,1,2" options="header"]
+[cols="1,3" options="header"]
 |===
-|Rolle |Kontakt |Erwartungshaltung
-| _<Rolle-1>_ | _<Kontakt-1>_ | _<Erwartung-1>_
-| _<Rolle-2>_ | _<Kontakt-2>_ | _<Erwartung-2>_ 
+|Randbedingung | Erläuterung
+| _Team_ | _Entwicklerteam von Baidu, ggfs. stark auf den chinesischen Markt spezialisiert_
+| _Zeitplan_ | _Updates mit Abständen von Monaten bis zu einem Jahr_
+| _Vorgehensmodell_ | _Mit den Updates verbunden sind Erweiterungen der Funktionalität der Software und Integration von zusätzlicher Hardware._
+| _Veröffentlichung_ | _Der Installationsordner von ApolloAuto ist frei zugänglich auf einem GitHub Server einsehbar._ 
 |===
 
 ****
@@ -53,10 +76,10 @@
 [role="arc42help"]
 ****
 
-[cols="1,1,2" options="header"]
+[cols="1,3" options="header"]
 |===
-|Rolle |Kontakt |Erwartungshaltung
-| _<Rolle-1>_ | _<Kontakt-1>_ | _<Erwartung-1>_
+|Konvention |Erläuterung
+| _Dokumentation_ | _Aktuelle Dokumentation erfolgt über Readme-Dateien in den dazugehörigen Projektordnern._
 | _<Rolle-2>_ | _<Kontakt-2>_ | _<Erwartung-2>_ 
 |===
 
