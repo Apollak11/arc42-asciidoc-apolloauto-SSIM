@@ -79,8 +79,8 @@ Die Spezifikationen anderer Versionen können der https://github.com/ApolloAuto/
 [cols="1,3" options="header"]
 |===
 |Konvention |Erläuterung
-| _Dokumentation_ | _Aktuelle Dokumentation erfolgt über Readme-Dateien in den dazugehörigen Projektordnern._
-| _<Rolle-2>_ | _<Kontakt-2>_ | _<Erwartung-2>_ 
+| _Dokumentation_ | _Aktuelle Dokumentation erfolgt über Readme-Dateien innerhalb des Github-Ordners._
+| _Sprache_ | _Für eine internationale Lösung und aufgrund _ 
 |===
 
 ****
