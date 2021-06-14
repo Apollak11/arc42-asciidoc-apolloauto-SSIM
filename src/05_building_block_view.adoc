@@ -1,9 +1,11 @@
 [[section-building-block-view]]
 == Bausteinsicht
+
+[role="arc42help"]
+
 //https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/specs/Apollo_5.5_Software_Architecture.md
 //https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_understand_architecture_and_workflow.md
 //https://github.com/ApolloAuto/apollo/blob/master/cyber/README.md
-//[role="arc42help"]
 //****
 //.Inhalt
 //Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen.
@@ -45,7 +47,7 @@
 //Sie enthält somit die Whitebox-Beschreibungen ausgewählter Bausteine der Ebene 1, jeweils zusammen mit Blackbox-Beschreibungen darin enthaltener Bausteine.
 //
 //*Ebene 3* zoomt in einige Bausteine der Ebene 2 hinein, usw.
-****
+//****
 
 === Whitebox Gesamtsystem
 
