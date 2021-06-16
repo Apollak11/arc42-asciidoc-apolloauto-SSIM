@@ -2,9 +2,12 @@
 == Risiken und technische Schulden
 
 [role="arc42help"]
-****
+
+Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder technischen Schulden.
+
+
 //.Inhalt
-//Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder technischen Schulden.
+//
 //
 //.Motivation
 //"Risikomanagement ist Projektmanagement für Erwachsene."
@@ -15,10 +18,15 @@
 //.Form
 //Liste oder Tabelle von Risiken und/oder technischen Schulden, eventuell mit vorgeschlagenen Maßnahmen zur Risikovermeidung, Risikominimierung oder dem Abbau der technischen Schulden.
 
-=== Komplizierte Anbindung
 
+=== Aufwand der Implementierung
+[role="arc42help"]
 Es müssen hardwareseitig alle Voraussetzungen genau erfüllt werden, damit das Setup funktionieren kann.
-(?-->) Für die Entwicklung des Gesamtsystems ist es daher von großer Bedeutung, sicherzustellen, dass durch Weiterentwicklungen dieses komplexe System nicht funktionsunfähig wird.
 
-****
+
+=== Komplexes Gesamtsystem
+[role="arc42help"]
+(?-->) Für die Entwicklung des Gesamtsystems ist es von großer Bedeutung, sicherzustellen, dass durch Weiterentwicklungen dieses komplexe System nicht funktionsunfähig wird.
+
+
 

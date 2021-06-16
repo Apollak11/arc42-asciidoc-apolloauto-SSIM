@@ -2,7 +2,6 @@
 == Kontextabgrenzung
 
 [role="arc42help"]
-****
 
 Dieser Abschnitt beschreibt die Schnittstellen von ApolloAuto. Welche Personen und Systeme interagieren miteinander?
 
@@ -22,7 +21,6 @@ Dieser Abschnitt beschreibt die Schnittstellen von ApolloAuto. Welche Personen u
 //* Diverse Kontextdiagramme
 //* Listen von Kommunikationsbeziehungen mit deren Schnittstellen
 
-****
 
 === Fachlicher Kontext
 

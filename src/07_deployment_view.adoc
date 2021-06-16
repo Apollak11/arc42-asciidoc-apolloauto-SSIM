@@ -2,13 +2,23 @@
 == Verteilungssicht
 
 [role="arc42help"]
-****
+
+//In welcher Umgebung befindet sich das Projekt, wo wird Ubuntu installiert, was kann von von wo aus steuern; HMI als Schnittstelle
+//tiefer auf technische Randbedingungen eingehen
+
 .Inhalt
 Die Verteilungssicht beschreibt:
 
 1. die technische Infrastruktur, auf der Ihr System ausgeführt wird, mit Infrastrukturelementen wie Standorten, Umgebungen, Rechnern, Prozessoren, Kanälen und Netztopologien sowie sonstigen Bestandteilen, und
 
-2. die Abbildung von (Software-)Bausteinen auf diese Infrastruktur.
+2. die Abbildung von (Software-)Bausteinen auf dieser Infrastruktur.
+
+
+
+//https://github.com/ApolloAuto/apollo/tree/master/docker/build
+//läuft auf CyberRT (siehe Handskizze), Entwicklung auf dev
+
+
 
 
 Häufig laufen Systeme in unterschiedlichen Umgebungen, beispielsweise Entwicklung-/Test- oder Produktionsumgebungen.
@@ -30,7 +40,7 @@ Jetzt zoomen Sie in diese Infrastruktur mit weiteren Verteilungsdiagrammen hinei
 * Die UML stellt mit Verteilungsdiagrammen (Deployment diagrams) eine Diagrammart zur Verfügung, um diese Sicht auszudrücken.
 Nutzen Sie diese, evtl. auch geschachtelt, wenn Ihre Verteilungsstruktur es verlangt.
 * Falls Ihre Infrastruktur-Stakeholder andere Diagrammarten bevorzugen, die beispielsweise Prozessoren und Kanäle zeigen, sind diese hier ebenfalls einsetzbar.
-****
+
 
 === Infrastruktur Ebene 1
 
@@ -64,17 +74,17 @@ Für jedes Infrastrukturelement kopieren Sie die Struktur aus Ebene 1.
 ****
 
 ==== _<Infrastrukturelement 1>_
-
+[role="arc42help"]
 _<Diagramm + Erläuterungen>_
 
 ==== _<Infrastrukturelement 2>_
-
+[role="arc42help"]
 _<Diagramm + Erläuterungen>_
 
 ...
 
 ==== _<Infrastrukturelement n>_
-
+[role="arc42help"]
 _<Diagramm + Erläuterungen>_
 
 

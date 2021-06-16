@@ -2,9 +2,30 @@
 == Laufzeitsicht
 
 [role="arc42help"]
+Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien. Dabei werden im Gegensatz zur Bausteinsicht dynamische Aspekte visualisiert.
+
+=== Fahrwegermittlung
+[role="arc42help"]
+Sequenzdiagramm
+Zeitliche Abfolge der Kumminikation zwischen Subsystemen in der 1. Ebene von oben nach unten
+
+*  <hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
+*  <hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern>
+
+=== _<Bezeichnung Laufzeitszenario 2>_
+[role="arc42help"]
+...
+
+=== _<Bezeichnung Laufzeitszenario n>_
+[role="arc42help"]
+...
 
 //https://github.com/ApolloAuto/apollo/tree/master/docs/howto/modules
-****
+
+
+
+
+
 .Inhalt
 Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien aus den folgenden Bereichen:
 
@@ -34,17 +55,5 @@ Nutzen Sie beispielsweise:
 * BPMN (Geschäftsprozessmodell und -notation) oder EPKs (Ereignis-Prozessketten)
 * Zustandsautomaten
 * ...
-****
 
-=== _<Bezeichnung Laufzeitszenario 1>_
 
-*  <hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
-*  <hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern>
-
-=== _<Bezeichnung Laufzeitszenario 2>_
-
-...
-
-=== _<Bezeichnung Laufzeitszenario n>_
-
-...

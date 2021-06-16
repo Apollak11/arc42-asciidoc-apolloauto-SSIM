@@ -1,9 +1,39 @@
 [[section-solution-strategy]]
 == Lösungsstrategie
-//https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_understand_architecture_and_workflow.md
-//https://github.com/ApolloAuto/apollo/tree/master/modules/common/proto Kommunikationsprotokolle als Protobuf, mit welchen Fehler, Richtungen etc. kommuniziert werden.
-//https://github.com/ApolloAuto/apollo/tree/master/modules/canbus Kommunikation im CAN-Bus
+
+
+
 [role="arc42help"]
+
+===Einstieg
+
+[cols="1,2" options="header"]
+|===
+|Qualitätsziel | Dem zuträgliche Ansätze in der Architektur
+| _Schnelle Entwicklung autonomer Fahrzeuge_ | _Cyber RT Framework; Definierte Schnittstellen (mit Bild vom technischen Kontext Vorkapitel, wo diese sind)_
+| _Schnelle Tests von autonomen Fahrzeugen_ | _Tests vor der Integration ins Fahrzeug? - CyberRT?_
+| _Flexible Architektur_ | _Continious Integration Ansatz, Upload auf Github; Erweiterbarkeit?;_
+| _Verständliche Darstellung_ | _Implementationsbeschreibung über Readme-Dateien in der Repository. Darüber auch zusätzliche Informationen zum Aufbau der Funktionen._
+|===
+
+===Aufbau
+
+Unterteilung der verschiedenen Funktionen: Perceiption, Sensoring, Mapping, .....
+
+===Aufbau2
+
+//https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_understand_architecture_and_workflow.md !!!
+//rpc, nicht grpc, aufpassen mit ROS, neues system, 
+//Verweis auf:
+//https://github.com/ApolloAuto/apollo/tree/master/modules/common/proto Kommunikationsprotokolle als Protobuf, mit welchen Fehler, Richtungen etc. kommuniziert werden.
+
+//Informationen zur Fahrzeugaktiorik:
+//https://github.com/ApolloAuto/apollo/tree/master/modules/canbus Kommunikation im CAN-Bus
+
+===Anbindung
+
+Wie programmiere ich und wie greife ich auf Schnittstellen zu? Wie kann ich selbst geschriebnene Programmcode zum System beitragen?
+
 ****
 .Inhalt
 Kurzer Überblick über die grundlegenden Entscheidungen und Lösungsansätze, die Entwurf und Implementierung des Systems prägen.

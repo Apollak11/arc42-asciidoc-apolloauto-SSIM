@@ -2,6 +2,36 @@
 == Glossar
 
 [role="arc42help"]
+Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im Zusammenhang mit dem System verwenden.
+
+=== Eistieg
+[role="arc42help"]
+
+*Was ist autonomes Fahren?
+
+=== Begriffe
+[role="arc42help"]
+
+*Die folgenden Begriffe werden im Kontext dieser Dokumentation verwendet.
+
+
+
+[cols="1, 2" options="header"]
+|===
+|Begriff |Definition
+
+|Protobuf
+|<Definition-1>
+
+|CAN-Bus
+|<Definition-2>
+
+|LIdAR
+|<Definition-2>
+
+|===
+
+
 ****
 .Inhalt
 Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im Zusammenhang mit dem System verwenden.
@@ -18,14 +48,3 @@ Sie sollten relevante Begriffe klar definieren, so dass alle Beteiligten
 * Zweispaltige Tabelle mit <Begriff> und <Definition>
 * Eventuell weitere Spalten mit Übersetzungen, falls notwendig.
 ****
-
-[cols="e,2e" options="header"]
-|===
-|Begriff |Definition
-
-|<Begriff-1>
-|<Definition-1>
-
-|<Begriff-2
-|<Definition-2>
-|===

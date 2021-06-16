@@ -2,7 +2,7 @@
 ==	Einführung und Ziele
 
 [role="arc42help"]
-****
+
 Dieser Abschnitt beschreibt die wesentlichen Anforderungen und treibenden Kräfte, die bei der Umsetzung der Softwarearchitektur und Entwicklung des Systems berücksichtigt werden müssen.
 
 Dazu gehören:
@@ -12,12 +12,11 @@ Dazu gehören:
 * essenzielle fachliche Anforderungen an das System sowie
 * Qualitätsziele für die Architektur und
 * relevante Stakeholder und deren Erwartungshaltung.
-****
+
 
 === Aufgabenstellung
 
 [role="arc42help"]
-****
 
 .Was ist ApolloAuto?
 
@@ -39,7 +38,7 @@ Die Ziele der einzelnen Apollo Releases seit dem Start im April können der folg
 
 image::ZieleApolloReleases.png[]
 
-Mit diesem Ansatz soll die Grundlage für Implementierungen des autonomen Fahrens geschaffen werden. Langfristig wir Level 5 autonomes Fahren verfolgt.
+Mit diesem Ansatz soll die Grundlage für Implementierungen des autonomen Fahrens geschaffen werden. Langfristig wird Level 5 autonomes Fahren verfolgt.
 
 
 Die vorliegende Architektur soll verschiedene Anwendungen ermöglichen. Einige mit entscheidenen Kernfunktionen werden in folgender Tabelle aufgelistet.
@@ -48,17 +47,14 @@ Die vorliegende Architektur soll verschiedene Anwendungen ermöglichen. Einige m
 |===
 |Use Case |Erläuterung 
 | _Apollo Go Robotaxi_ | _Ein autonom fahrender Taxiservice, welcher derzeit Level 4 autonomes Fahren beherrschen soll_
-| _Apollo V2X_ | _Ein intelligentes Transportsystem für die Erfassung und Verarbeitung von Straßendaten_
-| _Valet Parking_ | _Das Fahrzeug übernimmt die Parkplatzsuche und den eigentlichen Einparkvorgang in beispielsweise Parkhäusern_
+| _Apollo V2X_ | _Ein intelligentes System für die Kommunikation zwischen Autos und allen anderen Elementen im Straßenverkehr_
+| _Valet Parking_ | _Das Fahrzeug übernimmt die Parkplatzsuche und den eigentlichen Einparkvorgang, beispielsweise in Parkhäusern_
 |===
 
-****
 
 === Qualitätsziele
 
 [role="arc42help"]
-****
-
 
 //.Inhalt
 //Die Top-3 bis Top-5 der Qualitätsziele für die Architektur, deren Erfüllung oder Einhaltung den maßgeblichen Stakeholdern besonders wichtig sind.
@@ -73,18 +69,18 @@ Die vorliegende Architektur soll verschiedene Anwendungen ermöglichen. Einige m
 [cols="1,2" options="header"]
 |===
 |Qualitätsziel | Erläuterung
-| _Schnelle Entwicklung autonomer Fahrzeuge_ | _ _
-| _Schnelle Tests von autonomen Fahrzeugen_ | _ _
-| _Flexible Architektur_ | _ _ 
-| _Verständliche Darstellung_ | _Entwickler, die nicht bei Baidu arbeiten, müssen mit dem vorliegenden Code und den gegebenen Beschreibungen des Systems zurechtkommen_
+| _Schnelle Entwicklung autonomer Fahrzeuge (Änderbarkeit)_ | _Entwickler haben die Möglichkeit, funktionsfähige technische Anwendungen mit verhältnismäßig geringem Aufwand zu implementieren._
+| _Schnelle Tests von autonomen Fahrzeugen (Analysierbarkeit)_ | _Neue Implementierungen müssen leicht testbar sein._
+| _Flexible Architektur (Anpassbarkeit)_ | _Durch die schnellen technischen Fortschritte im autonomen Fahren muss die bisherige Architektur leicht angepasst werden können._ 
+| _Verständliche Darstellung (Nutzerfreundlichkeit)_ | _Entwickler, die nicht bei Baidu arbeiten, müssen mit dem vorliegenden Code und den gegebenen Beschreibungen des Systems zurechtkommen._
+| _Hohe Fehlertoleranz_ | _Im Straßenverkehr sind Systemausfälle nicht zulässig_
 |===
 
-****
 
 === Stakeholder
 
 [role="arc42help"]
-****
+
 //.Inhalt
 //Expliziter Überblick über die Stakeholder des Systems – über alle Personen, Rollen oder Organisationen –, die
 //
@@ -104,8 +100,8 @@ Die vorliegende Architektur soll verschiedene Anwendungen ermöglichen. Einige m
 [cols="1,2" options="header"]
 |===
 |Rolle |Erwartungshaltung
-| _Baidu_ | _Weiterentwicklung des autonomen Fahrens und von V2X-Anwendungen_
+| _Baidu Product Owner_ | _Weiterentwicklung des autonomen Fahrens und von V2X-Anwendungen_
+| _Baidu Entwicklungsteam_ | _Aufbau einer Struktur, welche für eine Weiterentwicklung bei zukünftigen Problemen geeignet ist_
 | _Unabhängige Entwickler_ | _Ziel ist die Entwicklung von Tools, um Produkte für das autonome Fahren zu entwickeln. Die Einarbeitung in das System muss dafür ermöglicht werden._ 
 |===
 
-****

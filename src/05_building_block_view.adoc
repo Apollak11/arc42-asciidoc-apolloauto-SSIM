@@ -1,6 +1,8 @@
 [[section-building-block-view]]
 == Bausteinsicht
 
+Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen. Bausteine der ersten Zerlegungsebene bezeichnen wir in den nachfolgenden Kapiteln als Subsysteme.
+
 [role="arc42help"]
 
 //https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/specs/Apollo_5.5_Software_Architecture.md
@@ -52,8 +54,6 @@
 === Whitebox Gesamtsystem
 
 [role="arc42help"]
-****
-
 
 
 
@@ -73,7 +73,7 @@
 //Aufgrund der vielfältigen Möglichkeiten oder Ausprägungen von Schnittstellen geben wir hierzu kein weiteres Template vor.
 //Im schlimmsten Fall müssen Sie Syntax, Semantik, Protokolle, Fehlerverhalten, Restriktionen, Versionen, Qualitätseigenschaften, notwendige Kompatibilitäten und vieles mehr spezifizieren oder beschreiben.
 //Im besten Fall kommen Sie mit Beispielen oder einfachen Signaturen zurecht.
-****
+
 
 //_**<Übersichtsdiagramm>**_
 //
