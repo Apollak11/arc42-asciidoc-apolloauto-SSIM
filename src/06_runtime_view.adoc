@@ -12,6 +12,12 @@ Zeitliche Abfolge der Kumminikation zwischen Subsystemen in der 1. Ebene von obe
 *  <hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
 *  <hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern>
 
+[role="arc42help"]
+
+include::Laufzeitdiagramm.adoc[]
+//
+//image::D:/Uni/SoftwareintensiveSystemeinderMobilitaet/Begleitleistung/Begleitleistung/AsciiDocDir/arc42-asciidoc-apolloauto/build/pdf/images/Laufzeitdiagramm.png[]
+
 === _<Bezeichnung Laufzeitszenario 2>_
 [role="arc42help"]
 ...

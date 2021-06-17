@@ -1,8 +1,6 @@
 [[section-system-scope-and-context]]
 == Kontextabgrenzung
 
-[role="arc42help"]
-
 Dieser Abschnitt beschreibt die Schnittstellen von ApolloAuto. Welche Personen und Systeme interagieren miteinander?
 
 //.Inhalt
@@ -24,8 +22,6 @@ Dieser Abschnitt beschreibt die Schnittstellen von ApolloAuto. Welche Personen u
 
 === Fachlicher Kontext
 
-[role="arc42help"]
-****
 //.Inhalt
 //Festlegung *aller* Kommunikationsbeziehungen (Nutzer, IT-Systeme, ...) mit Erklärung der fachlichen Ein- und Ausgabedaten oder Schnittstellen.
 //Zusätzlich (bei Bedarf) fachliche Datenformate oder Protokolle der Kommunikation mit den Nachbarsystemen.
@@ -41,16 +37,24 @@ Dieser Abschnitt beschreibt die Schnittstellen von ApolloAuto. Welche Personen u
 
 Interaktion der Software mit den anderen Verkehrsteilnehmern (Sensordaten), Kartendaten (Fremdsystem) und Fahrzeugaktorik (Sensordaten).
 
-****
+image::FachlicherKontext.png[]
 
-**<Diagramm und/oder Tabelle>**
+.Externe Kartendaten
 
-**<optional: Erläuterung der externen fachlichen Schnittstellen>**
+ApolloAuto benötigt Zugang zu einer Bibliothek mit Kartendaten. Nur so kann sichergestellt werden, dass das Fahrzeug die Verkehrssituation auf Basis seiner Position sinnvoll bewertet.
+
+.Fahrzeugsensorik
+
+Messdaten jeglicher Sensorik werden von ApolloAuto verwertet. Dazu gehören beispielsweise das GPS und LiDAR-Sensoren.
+Diese ermöglichen die Auswertung der vorhandenen Verkehrsituation durch ApolloAuto.
+
+.Fahrzeugaktorik
+Dem System ist es möglich, Vorgänge wie die Lenkung, Beschleunigung und Bremsvorgänge zu steuern. Gleichzeitig erhält es vom Fahrzeug Zustandsinformationen dieser Aktoren.
+
 
 === Technischer Kontext
 
-[role="arc42help"]
-****
+
 //.Inhalt
 //Technische Schnittstellen (Kanäle, Übertragungsmedien) zwischen dem System und seiner Umwelt.
 //Zusätzlich eine Erklärung (_mapping_), welche fachlichen Ein- und Ausgaben über welche technischen Kanäle fließen.
@@ -62,8 +66,7 @@ Interaktion der Software mit den anderen Verkehrsteilnehmern (Sensordaten), Kart
 //
 //.Form
 //Beispielsweise UML Deployment-Diagramme mit den Kanälen zu Nachbarsystemen, begleitet von einer Tabelle, die Kanäle auf Ein-/Ausgaben abbildet.
-
-https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/specs/Apollo_5.5_Software_Architecture.md
+//https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/specs/Apollo_5.5_Software_Architecture.md
 
 Externe Schnittstelle der Software HD-Map Kartenbibliothek, 
 Lokalisierung, 
@@ -71,10 +74,10 @@ einen CAN-Bus, welcher die Fahrzeugaktorik steuert,
 einem Monitor, welcher alle Systeme überwacht
 einen Guardian, welcher einschreitet, wenn der Monitor einen Fehler feststellt
 ein Human Machine Interface, aus welchem Statusanzeigen eingesehen und in Echtzeit Änderungen vorgenommen werden können
-****
 
-**<Diagramm oder Tabelle>**
 
-**<optional: Erläuterung der externen technischen Schnittstellen>**
-
-**<Mapping fachliche auf technische Schnittstellen>**
+//**<Diagramm oder Tabelle>**
+//
+//**<optional: Erläuterung der externen technischen Schnittstellen>**
+//
+//**<Mapping fachliche auf technische Schnittstellen>**

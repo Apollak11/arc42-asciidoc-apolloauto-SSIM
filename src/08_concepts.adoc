@@ -60,5 +60,15 @@ _<Erklärung>_
 //Monitor und Guardian-Block, Sicherheit im Straßenverkehr
 
 
+=== _common_
+
+//Funktionsbausteine, die für alle Anwendungen Relevanz haben
+
+=== _guardian_
+
+
+=== _drive_
+
+
 
 //was ist speziell bei ApolloAuto als Umsetzung, was ist dabei erwähnenswert
