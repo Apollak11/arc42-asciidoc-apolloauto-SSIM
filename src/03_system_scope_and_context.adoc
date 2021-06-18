@@ -35,7 +35,7 @@ Dieser Abschnitt beschreibt die Schnittstellen von ApolloAuto. Welche Personen u
 //Alternativ oder ergänzend können Sie eine Tabelle verwenden.
 //Der Titel gibt den Namen Ihres Systems wieder; die drei Spalten sind: Kommunikationsbeziehung, Eingabe, Ausgabe.
 
-Interaktion der Software mit den anderen Verkehrsteilnehmern (Sensordaten), Kartendaten (Fremdsystem) und Fahrzeugaktorik (Sensordaten).
+Interaktion der Software mit den anderen Verkehrsteilnehmern (Sensordaten), den Kartendaten (Fremdsystem) und der Fahrzeugaktorik (Sensordaten).
 
 image::FachlicherKontext.png[]
 
@@ -45,12 +45,10 @@ ApolloAuto benötigt Zugang zu einer Bibliothek mit Kartendaten. Nur so kann sic
 
 .Fahrzeugsensorik
 
-Messdaten jeglicher Sensorik werden von ApolloAuto verwertet. Dazu gehören beispielsweise das GPS und LiDAR-Sensoren.
-Diese ermöglichen die Auswertung der vorhandenen Verkehrsituation durch ApolloAuto.
+Die Sensorik, welche das Umfeld des Fahrzeugs aufnimmt, wird von ApolloAuto verwertet. Dazu gehören beispielsweise das GPS und LiDAR-Sensoren.
 
 .Fahrzeugaktorik
-Dem System ist es möglich, Vorgänge wie die Lenkung, Beschleunigung und Bremsvorgänge zu steuern. Gleichzeitig erhält es vom Fahrzeug Zustandsinformationen dieser Aktoren.
-
+Dem System ist es möglich, Vorgänge wie die Lenkung, Beschleunigung und Bremsvorgänge zu steuern. Gleichzeitig erhält es vom Fahrzeug Zustandsinformationen.
 
 === Technischer Kontext
 
@@ -68,16 +66,16 @@ Dem System ist es möglich, Vorgänge wie die Lenkung, Beschleunigung und Bremsv
 //Beispielsweise UML Deployment-Diagramme mit den Kanälen zu Nachbarsystemen, begleitet von einer Tabelle, die Kanäle auf Ein-/Ausgaben abbildet.
 //https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/specs/Apollo_5.5_Software_Architecture.md
 
-Externe Schnittstelle der Software HD-Map Kartenbibliothek, 
-Lokalisierung, 
-einen CAN-Bus, welcher die Fahrzeugaktorik steuert, 
-einem Monitor, welcher alle Systeme überwacht
-einen Guardian, welcher einschreitet, wenn der Monitor einen Fehler feststellt
-ein Human Machine Interface, aus welchem Statusanzeigen eingesehen und in Echtzeit Änderungen vorgenommen werden können
+Technische interaktion des Systems mit externen Beteiligten.
 
+image::TechnischerKontext.png[]
 
-//**<Diagramm oder Tabelle>**
-//
-//**<optional: Erläuterung der externen technischen Schnittstellen>**
-//
-//**<Mapping fachliche auf technische Schnittstellen>**
+.Sensorschnittstelle
+
+Das System verwertet die empfangenen Daten der Fahrzeugsensorik, wie GPS, LiDAR, Radar, Kamerasysteme und eine inertiale Messeinheit. Damit empfängt es sowohl die Informationen zum Fahrzeug, als auch zur umgebenden Verkehrsituation.
+
+.Monitor
+Der Monitor ermöglicht die externe Überwachung von Fahrzeugzuständen. Bei bestimmten, festgelegten Zuständen wird in das System eingegriffen. Außerdem ermöglicht es diese Zustände an die Dreamview HMI weiterleiten.
+
+.Dreamview HMI
+Im Dreamview Human Machine Interface können Ausgabewerte des Fahrzeugs visualisiert werden. Dieses bildet somit die Schnittstelle zum Menschen, über welche eine Überwachung des Fahrzeugzustands möglich ist.

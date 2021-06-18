@@ -972,7 +972,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <div class="sect2">
 <h3 id="_fachlicher_kontext">3.1. Fachlicher Kontext</h3>
 <div class="paragraph">
-<p>Interaktion der Software mit den anderen Verkehrsteilnehmern (Sensordaten), Kartendaten (Fremdsystem) und Fahrzeugaktorik (Sensordaten).</p>
+<p>Interaktion der Software mit den anderen Verkehrsteilnehmern (Sensordaten), den Kartendaten (Fremdsystem) und der Fahrzeugaktorik (Sensordaten).</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -985,23 +985,34 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 </div>
 <div class="paragraph">
 <div class="title">Fahrzeugsensorik</div>
-<p>Messdaten jeglicher Sensorik werden von ApolloAuto verwertet. Dazu gehören beispielsweise das GPS und LiDAR-Sensoren.
-Diese ermöglichen die Auswertung der vorhandenen Verkehrsituation durch ApolloAuto.</p>
+<p>Die Sensorik, welche das Umfeld des Fahrzeugs aufnimmt, wird von ApolloAuto verwertet. Dazu gehören beispielsweise das GPS und LiDAR-Sensoren.</p>
 </div>
 <div class="paragraph">
 <div class="title">Fahrzeugaktorik</div>
-<p>Dem System ist es möglich, Vorgänge wie die Lenkung, Beschleunigung und Bremsvorgänge zu steuern. Gleichzeitig erhält es vom Fahrzeug Zustandsinformationen dieser Aktoren.</p>
+<p>Dem System ist es möglich, Vorgänge wie die Lenkung, Beschleunigung und Bremsvorgänge zu steuern. Gleichzeitig erhält es vom Fahrzeug Zustandsinformationen.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_technischer_kontext">3.2. Technischer Kontext</h3>
 <div class="paragraph">
-<p>Externe Schnittstelle der Software HD-Map Kartenbibliothek,
-Lokalisierung,
-einen CAN-Bus, welcher die Fahrzeugaktorik steuert,
-einem Monitor, welcher alle Systeme überwacht
-einen Guardian, welcher einschreitet, wenn der Monitor einen Fehler feststellt
-ein Human Machine Interface, aus welchem Statusanzeigen eingesehen und in Echtzeit Änderungen vorgenommen werden können</p>
+<p>Technische interaktion des Systems mit externen Beteiligten.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/TechnischerKontext.png" alt="TechnischerKontext">
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Sensorschnittstelle</div>
+<p>Das System verwertet die empfangenen Daten der Fahrzeugsensorik, wie GPS, LiDAR, Radar, Kamerasysteme und eine inertiale Messeinheit. Damit empfängt es sowohl die Informationen zum Fahrzeug, als auch zur umgebenden Verkehrsituation.</p>
+</div>
+<div class="paragraph">
+<div class="title">Monitor</div>
+<p>Der Monitor ermöglicht die externe Überwachung von Fahrzeugzuständen. Bei bestimmten, festgelegten Zuständen wird in das System eingegriffen. Außerdem ermöglicht es diese Zustände an die Dreamview HMI weiterleiten.</p>
+</div>
+<div class="paragraph">
+<div class="title">Dreamview HMI</div>
+<p>Im Dreamview Human Machine Interface können Ausgabewerte des Fahrzeugs visualisiert werden. Dieses bildet somit die Schnittstelle zum Menschen, über welche eine Überwachung des Fahrzeugzustands möglich ist.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
