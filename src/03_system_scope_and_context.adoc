@@ -71,7 +71,6 @@ Technische interaktion des Systems mit externen Beteiligten.
 image::TechnischerKontext.png[]
 
 .Sensorschnittstelle
-
 Das System verwertet die empfangenen Daten der Fahrzeugsensorik, wie GPS, LiDAR, Radar, Kamerasysteme und eine inertiale Messeinheit. Damit empfängt es sowohl die Informationen zum Fahrzeug, als auch zur umgebenden Verkehrsituation.
 
 .Monitor
@@ -79,3 +78,6 @@ Der Monitor ermöglicht die externe Überwachung von Fahrzeugzuständen. Bei bes
 
 .Dreamview HMI
 Im Dreamview Human Machine Interface können Ausgabewerte des Fahrzeugs visualisiert werden. Dieses bildet somit die Schnittstelle zum Menschen, über welche eine Überwachung des Fahrzeugzustands möglich ist.
+
+.Fahrzeugschnittstelle
+Steuerungs-und Regelungsbefehle müssen an die Fahrzeugaktorik weitergeleitet werden.

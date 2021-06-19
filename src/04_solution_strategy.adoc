@@ -78,7 +78,8 @@ Grundsätzlich lassen sich die Funktionalitäten dabei in folgende Gruppen unter
 * Modulübergreifender Code
 ** Common
 
-In Common beinhaltet dabei alles, was für mehrere Funktionen von Relevanz ist. In Kapitel 8 wird explizit auf dieses Modul als Konzept eingegangen. Bei der Überwachungs- und Kontrolleinheit 
+In Common beinhaltet dabei alles, was für mehrere Funktionen von Relevanz ist. In Kapitel 8 wird explizit auf dieses Modul als Konzept eingegangen.
+Bei der Überwachungs- und Kontrolleinheit kann außerdem zwischen dem CANBus und Guardian sowie dem Monitor und der Dreamview HMI unterschieden werden, da diese direkten Zugriff auf die Regelung und Steuerung des Fahrzeugs haben.
 
 //****
 //.Inhalt
