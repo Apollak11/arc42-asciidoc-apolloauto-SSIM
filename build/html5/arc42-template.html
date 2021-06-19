@@ -557,13 +557,12 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#section-building-block-view">5. Bausteinsicht</a>
 <ul class="sectlevel2">
 <li><a href="#_ebene_1">5.1. Ebene 1</a></li>
+<li><a href="#_ebene_2_lokalisierung_und_standortverarbeitung">5.2. Ebene 2: Lokalisierung und Standortverarbeitung</a></li>
 </ul>
 </li>
 <li><a href="#section-runtime-view">6. Laufzeitsicht</a>
 <ul class="sectlevel2">
-<li><a href="#_fahrwegermittlung">6.1. Fahrwegermittlung</a></li>
-<li><a href="#_bezeichnung_laufzeitszenario_2">6.2. <em>&lt;Bezeichnung Laufzeitszenario 2&gt;</em></a></li>
-<li><a href="#_bezeichnung_laufzeitszenario_n">6.3. <em>&lt;Bezeichnung Laufzeitszenario n&gt;</em></a></li>
+<li><a href="#_annäherung_an_ein_stoppschild">6.1. Annäherung an ein Stoppschild</a></li>
 </ul>
 </li>
 <li><a href="#section-deployment-view">7. Verteilungssicht</a>
@@ -885,6 +884,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <div class="content">
 <img src="./images/FahrzeuganforderungenApolloAuto.png" alt="FahrzeuganforderungenApolloAuto">
 </div>
+<div class="title">Abbildung 1. Fahrzeuganforderungen ApolloAuto</div>
 </div>
 <div class="paragraph">
 <p>Die Spezifikationen anderer Versionen können der <a href="https://github.com/ApolloAuto/apollo">Github Seite</a> entnommen werden.</p>
@@ -964,6 +964,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <div class="content">
 <img src="./images/ApolloProgramLanguages.PNG" alt="ApolloProgramLanguages" width="400" height="231">
 </div>
+<div class="title">Abbildung 2. Verwendete Programmiersprachen</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -984,6 +985,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <div class="content">
 <img src="./images/FachlicherKontext.png" alt="FachlicherKontext">
 </div>
+<div class="title">Abbildung 3. Fachlicher Kontext ApolloAuto</div>
 </div>
 <div class="paragraph">
 <div class="title">Externe Kartendaten</div>
@@ -1007,6 +1009,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <div class="content">
 <img src="./images/TechnischerKontext.png" alt="TechnischerKontext">
 </div>
+<div class="title">Abbildung 4. Technischer Kontext ApolloAuto</div>
 </div>
 <div class="paragraph">
 <div class="title">Sensorschnittstelle</div>
@@ -1131,6 +1134,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <div class="content">
 <img src="./images/ApolloModules.png" alt="ApolloModules">
 </div>
+<div class="title">Abbildung 5. Module in der ApolloAuto Repository</div>
 </div>
 <div class="paragraph">
 <p>In diesen Ordnern sind teilweise weitere Informationen zu den Modulen hinterlegt. Im Kontext dieser Dokumentation werden für das Grundverständnis der Funktionsweise von ApolloAuto folgende Module genauer betrachtet.</p>
@@ -1267,7 +1271,7 @@ Bei der Überwachungs- und Kontrolleinheit kann außerdem zwischen dem CANBus un
 <h2 id="section-building-block-view">5. Bausteinsicht</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen. Bausteine der ersten Zerlegungsebene bezeichnen wir in den nachfolgenden Kapiteln als Subsysteme.</p>
+<p>Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen. Bausteine der ersten Zerlegungsebene werden in den nachfolgenden Kapiteln als Subsysteme bezeichnet.</p>
 </div>
 <div class="sect2">
 <h3 id="_ebene_1">5.1. Ebene 1</h3>
@@ -1278,6 +1282,7 @@ Bei der Überwachungs- und Kontrolleinheit kann außerdem zwischen dem CANBus un
 <div class="content">
 <img src="./images/Ebene1_Bausteinsicht.png" alt="Ebene1 Bausteinsicht">
 </div>
+<div class="title">Abbildung 6. Bausteinsicht Ebene 1</div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1293,7 +1298,7 @@ Bei der Überwachungs- und Kontrolleinheit kann außerdem zwischen dem CANBus un
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Regelungs- und Steuereinheit</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Übernimmt die Berechnungsaufgaben des autonomen Fahrens, welche letztendlich das Fahrzeugverhalten vorgeben</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Übernimmt die Berechnungsaufgaben des autonomen Fahrens, welche letztendlich das Fahrzeugverhalten vorgeben. Das Subsystem empfängt Sensordaten, um bspw. Kollisionen zu verhindern.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Überwachungs- und Kontrolleinheit</em></p></td>
@@ -1301,113 +1306,204 @@ Bei der Überwachungs- und Kontrolleinheit kann außerdem zwischen dem CANBus un
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lokalisierung und Standortverarbeitung</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Ubuntu 18.04</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Empfängt Sensordaten, auf deren Basis die Lokalisierung und Standortverarbeitung verwaltet wird.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Da die genaue Interaktion zwischen den einzelnen Subsystemen gänzlich durch die Module definiert wird, ist die Betrachtung der Schnittstellen innerhalb des Systems auch erst ab der zweiten Ebene sinnvoll, folglich erfolgt diese dort.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ebene_2_lokalisierung_und_standortverarbeitung">5.2. Ebene 2: Lokalisierung und Standortverarbeitung</h3>
+<div class="paragraph">
+<p>Im folgenden Kapitel wird die Lokalisierung und Standortverarbeitung genauer betrachtet.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Ebene2_Bausteinsicht.png" alt="Ebene2 Bausteinsicht">
+</div>
+<div class="title">Abbildung 7. Bausteinsicht Ebene 2</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Modul</th>
+<th class="tableblock halign-left valign-top">Kurzbeschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Map</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lädt Kartendaten ein, verwaltet sie und leitet diese an die anderen Teilnehmer im System.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Localization</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Bestimmt mithilfe der Sensordaten die Position des Fahrzeugs und leitet diese an die Regelungs- und Steuereinheit.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_map">5.2.1. Map</h4>
+<div class="paragraph">
+<p>Kartendaten werden in Verzeichnissen abgelegt, in welchen zusammenhängende Kartendaten abgespeichert werden. Sie folgen dabei der folgenden Struktur:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Datenstruktur_Map.png" alt="Datenstruktur Map">
+</div>
+<div class="title">Abbildung 8. Datenstruktur einer Map</div>
+</div>
+<div class="paragraph">
+<p>Es wird dabei zwischen der <em>base_map</em>, <em>routing_map</em> und <em>sim_map</em> unterschieden.</p>
+</div>
+<div class="paragraph">
+<div class="title">basemap</div>
+<p>Die <em>base_map</em> ist dabei die kompletteste Darstellung mit allen Straßen, Spurgeometrien und weiteren Kennzeichen.
+Aus dieser werden die anderen beiden Karten generiert.</p>
+</div>
+<div class="paragraph">
+<div class="title">routing_map</div>
+<p>In dieser wird die Topologie der Fahrbahnen dargestellt.</p>
+</div>
+<div class="paragraph">
+<div class="title">sim_map</div>
+<p>Zur Visualisierung vereinfachte Darstellung von <em>base_map</em>. Diese kann anschließend von dem Dreamview HMI verwendet werden.</p>
+</div>
+<div class="paragraph">
+<p>Die Kartendaten werden dafür zunächst als HDMap durch hdmap.cc geladen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/hdmapcc.png" alt="hdmapcc">
+</div>
+<div class="title">Abbildung 9. hdmap.cc</div>
+</div>
+<div class="paragraph">
+<p>Dies kann sowohl über eine abgelegte Datei, als auch über Protocol Buffers bewerkstelligt werden.
+Die abgerufene map.proto unterteilt sich in eine Header- und eine Map-message.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/map_proto.png" alt="map proto">
+</div>
+<div class="title">Abbildung 10. map.proto</div>
+</div>
+<div class="paragraph">
+<p>Die Inhalte in Map sind dabei von besonderem interesse. Diese setzen sich aus wiederholenden .proto-Nachrichten zusammen, welche in den weiteren .proto-files des Ordners definiert werden.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/weitereprotofiles.png" alt="weitereprotofiles">
+</div>
+<div class="title">Abbildung 11. Protobuf-Dateien der Map</div>
+</div>
+<div class="paragraph">
+<p>In diesen werden alle einzelne Informationen zum mapping abgebildet.
+Beispielsweise beinhaltet map_lane.proto den genauen Straßentypen, wozu unter anderem dessen Fahrspurmarkierungsart, ob es sich um eine Kurve oder Gerade handelt und die dazugehörige Länge gehören.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/laneboundarytype.png" alt="laneboundarytype">
+</div>
+<div class="title">Abbildung 12. Beispiel einer spezifischen Information in den .proto-files</div>
+</div>
+<div class="paragraph">
+<p>Die geladenen Kartendaten können an die Lokalisierung und Regelungs- und Steuereinheit übertragen werden.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lokalization">5.2.2. Lokalization</h4>
+<div class="paragraph">
+<p>Zur Lokalisierung werden zwei verschiedene Methoden verwendet:</p>
+</div>
+<div class="paragraph">
+<div class="title">RTK</div>
+<p>Real Time Kinetic Localization verwendet zwei Sensorinputs</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>GPS</p>
+</li>
+<li>
+<p>IMU</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Multi-Sensor Fusion</div>
+<p>Diese Lokalisierungsmethode ergänzt die bisherige Sensorik um einen LiDAR-Sensor</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>GPS</p>
+</li>
+<li>
+<p>IMU</p>
+</li>
+<li>
+<p>LiDAR</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Es wird eine Protobuf-Datei ausgegeben, welche an die Regelungs- und Steuereinheit übertragen werden kann.
+Diese beinhaltet die geschätzte Position des Fahrzeugs und die damit verbundenen Standardabweichungen, um Ungenauigkeiten zu berücksichtigen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Lokalisierung_proto.png" alt="Lokalisierung proto">
+</div>
+<div class="title">Abbildung 13. Protobuf-Datei der Lokalisierung</div>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="section-runtime-view">6. Laufzeitsicht</h2>
 <div class="sectionbody">
-<div class="paragraph arc42help">
+<div class="paragraph">
 <p>Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien. Dabei werden im Gegensatz zur Bausteinsicht dynamische Aspekte visualisiert.</p>
 </div>
 <div class="sect2">
-<h3 id="_fahrwegermittlung">6.1. Fahrwegermittlung</h3>
-<div class="paragraph arc42help">
-<p>Sequenzdiagramm
-Zeitliche Abfolge der Kumminikation zwischen Subsystemen in der 1. Ebene von oben nach unten</p>
+<h3 id="_annäherung_an_ein_stoppschild">6.1. Annäherung an ein Stoppschild</h3>
+<div class="paragraph">
+<p>Die Fahrwegermittlung ist komplex, grundlegende Zusammenhänge sollen jedoch anhand eines Beispiels beschrieben werden.
+ApolloAuto verwendet für die Beschreibung komplexer Fahrsituationen Szenarien. Anhand dieser Szenarien können Fahreigenschaften dynamisch an bestimmte Situationen angepasst werden.
+Die vollumfänglichen Möglichkeiten, die in ApolloAuto für diese Szenarien vorgesehen sind, können im Modul Storytelling eingesehen werden.
+So wird hier die Grundlage geschaffen, um Verkehrssituationen mit den verschiedensten Eigenschaften zu beschreiben. Das umfasst beispielsweise Stoppschilder, Ampeln und Fußgängerüberwege.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>&lt;hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen&gt;</p>
-</li>
-<li>
-<p>&lt;hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern&gt;</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>In dieser Komplexität ist jedoch die Betrachtung für eine vereinfachte Laufzeitsicht nicht notwendig.
+Stattdessen betrachten wir Teile des im Planning integrierte Szenarios stop_sign um Interaktionen zwischen Modulen zu verdeutlichen.
+Das stark vereinfachte Beispiel für die visualisierung umfasst daher, dass sich unser Fahrzeug einer Kreuzung mit einem Stoppschild annähert, ohne dass andere Verkehrsteilnehmer involviert sind.</p>
 </div>
-<div class="imageblock arc42help">
+<div class="imageblock">
 <div class="content">
-<img src="./images/Laufzeitdiagramm.png" alt="Laufzeitdiagramm" width="259" height="284">
+<img src="./images/Laufzeitdiagramm.png" alt="Laufzeitdiagramm" width="1350" height="482">
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_bezeichnung_laufzeitszenario_2">6.2. <em>&lt;Bezeichnung Laufzeitszenario 2&gt;</em></h3>
-<div class="paragraph arc42help">
-<p>&#8230;&#8203;</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_bezeichnung_laufzeitszenario_n">6.3. <em>&lt;Bezeichnung Laufzeitszenario n&gt;</em></h3>
-<div class="paragraph arc42help">
-<p>&#8230;&#8203;</p>
+<div class="title">Abbildung 14. Sequenzdiagramm für die Annäherung an eine Kreuzung mit Stoppschild</div>
 </div>
 <div class="paragraph">
-<div class="title">Inhalt</div>
-<p>Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien aus den folgenden Bereichen:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Wichtige Abläufe oder <em>Features</em>:
-Wie führen die Bausteine der Architektur die wichtigsten Abläufe durch?</p>
-</li>
-<li>
-<p>Interaktionen an kritischen externen Schnittstellen:
-Wie arbeiten Bausteine mit Nutzern und Nachbarsystemen zusammen?</p>
-</li>
-<li>
-<p>Betrieb und Administration: Inbetriebnahme, Start, Stop.</p>
-</li>
-<li>
-<p>Fehler- und Ausnahmeszenarien</p>
-</li>
-</ul>
+<p>LiDAR-, Kamera- und Radardaten werden durchgehend an das Perceiption-Modul weitergeleitet, worin diese ausgewertet werden. Parallel dazu erhält auch die Localization Daten von GPS, IMU und LiDAR-Sensoren.</p>
 </div>
 <div class="paragraph">
-<p>Anmerkung:
-Das Kriterium für die Auswahl der möglichen Szenarien (d.h. Abläufe) des Systems ist deren Architekturrelevanz.
-Es geht nicht darum, möglichst viele Abläufe darzustellen, sondern eine angemessene Auswahl zu dokumentieren.</p>
+<p>Wird nun ein Stoppschild wahrgenommen, muss das Fahrzeug dafür das Fahrverhalten ändern.
+Dies geschiet in Planning. Das Modul verwendet dafür die Kartendaten aus Map, die Umgebungsaufnahme aus Perceiption und die festgestellte Fahrzeugposition aus Localization.
+In Planning wird das Fahrverhalten für bestimmte Fahrsituationen angepasst. Integriert sind in ApolloAuto derzeit die Szenarien für das Folgen der Fahrspur, Kreuzungen, Fahrspurwechsel, Park-and-go und Notfallsituationen.
+Im vorliegenden Fall wird das Fahrzeugverhalten vom Folgen der Fahrspur auf das Kreuzungsverhalten geändert.</p>
 </div>
 <div class="paragraph">
-<div class="title">Motivation</div>
-<p>Sie sollten verstehen, wie (Instanzen von) Bausteine(n) Ihres Systems ihre jeweiligen Aufgaben erfüllen und zur Laufzeit miteinander kommunizieren.</p>
-</div>
-<div class="paragraph">
-<p>Nutzen Sie diese Szenarien in der Dokumentation hauptsächlich für eine verständlichere Kommunikation mit denjenigen Stakeholdern, die die statischen Modelle (z.B. Bausteinsicht, Verteilungssicht) weniger verständlich finden.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Für die Beschreibung von Szenarien gibt es zahlreiche Ausdrucksmöglichkeiten.
-Nutzen Sie beispielsweise:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Nummerierte Schrittfolgen oder Aufzählungen in Umgangssprache</p>
-</li>
-<li>
-<p>Aktivitäts- oder Flussdiagramme</p>
-</li>
-<li>
-<p>Sequenzdiagramme</p>
-</li>
-<li>
-<p>BPMN (Geschäftsprozessmodell und -notation) oder EPKs (Ereignis-Prozessketten)</p>
-</li>
-<li>
-<p>Zustandsautomaten</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
+<p>Die daraus resultierende geplante Route wird an das Control-Modul weitergegeben. Dieses gibt die Regelungsvorgaben für das Fahrzeug wiederrum an CANBus weiter. Dort können diese Daten zur Ausführung an das Fahrzeug übermittelt werden.
+Des weiteren können auch Monitor und das Dreamview HMI diese Daten empfangen. In letzterem kann ein Mode Change Request gestellt werden, welcher direkt zur Control zurückführt.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>

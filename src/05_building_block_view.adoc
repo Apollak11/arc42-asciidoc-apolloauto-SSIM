@@ -1,13 +1,14 @@
 [[section-building-block-view]]
 == Bausteinsicht
 
-Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen. Bausteine der ersten Zerlegungsebene bezeichnen wir in den nachfolgenden Kapiteln als Subsysteme.
+Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen. Bausteine der ersten Zerlegungsebene werden in den nachfolgenden Kapiteln als Subsysteme bezeichnet.
 
 
 === Ebene 1
 
 In Kapitel 4 wurden bereits verschiedene Module thematisch unterteilt. Diese Gruppierungen bieten sich auch für die Beschreibung und Interaktion zwischen einzelner Subsysteme an.
 
+.Bausteinsicht Ebene 1
 image::Ebene1_Bausteinsicht.png[]
 
 [cols="1,3" options="header"]
@@ -24,14 +25,23 @@ Da die genaue Interaktion zwischen den einzelnen Subsystemen gänzlich durch die
 
 Im folgenden Kapitel wird die Lokalisierung und Standortverarbeitung genauer betrachtet.
 
+.Bausteinsicht Ebene 2
+image::Ebene2_Bausteinsicht.png[]
 
+[cols="1,3" options="header"]
+|===
+|Modul |Kurzbeschreibung
+| _Map_ | _Lädt Kartendaten ein, verwaltet sie und leitet diese an die anderen Teilnehmer im System._
+| _Localization_ | _Bestimmt mithilfe der Sensordaten die Position des Fahrzeugs und leitet diese an die Regelungs- und Steuereinheit._
+|===
 
 
 ==== Map
 
 Kartendaten werden in Verzeichnissen abgelegt, in welchen zusammenhängende Kartendaten abgespeichert werden. Sie folgen dabei der folgenden Struktur:
 
-image::Datenstruktur_Map.png[];
+.Datenstruktur einer Map
+image::Datenstruktur_Map.png[]
 
 Es wird dabei zwischen der _base_map_, _routing_map_ und _sim_map_ unterschieden. 
 
@@ -45,7 +55,53 @@ In dieser wird die Topologie der Fahrbahnen dargestellt.
 .sim_map
 Zur Visualisierung vereinfachte Darstellung von _base_map_. Diese kann anschließend von dem Dreamview HMI verwendet werden.
 
+Die Kartendaten werden dafür zunächst als HDMap durch hdmap.cc geladen.
+
+.hdmap.cc
+image::hdmapcc.png[]
+
+Dies kann sowohl über eine abgelegte Datei, als auch über Protocol Buffers bewerkstelligt werden.
+Die abgerufene map.proto unterteilt sich in eine Header- und eine Map-message.
+
+.map.proto
+image::map_proto.png[]
+
+Die Inhalte in Map sind dabei von besonderem interesse. Diese setzen sich aus wiederholenden .proto-Nachrichten zusammen, welche in den weiteren .proto-files des Ordners definiert werden.
+
+.Protobuf-Dateien der Map
+image::weitereprotofiles.png[]
+
+In diesen werden alle einzelne Informationen zum mapping abgebildet.
+Beispielsweise beinhaltet map_lane.proto den genauen Straßentypen, wozu unter anderem dessen Fahrspurmarkierungsart, ob es sich um eine Kurve oder Gerade handelt und die dazugehörige Länge gehören.
+
+.Beispiel einer spezifischen Information in den .proto-files
+image::laneboundarytype.png[]
+
+Die geladenen Kartendaten können an die Lokalisierung und Regelungs- und Steuereinheit übertragen werden.
+
 ==== Lokalization
+
+Zur Lokalisierung werden zwei verschiedene Methoden verwendet:
+
+.RTK
+Real Time Kinetic Localization verwendet zwei Sensorinputs
+
+* GPS
+* IMU
+
+.Multi-Sensor Fusion
+Diese Lokalisierungsmethode ergänzt die bisherige Sensorik um einen LiDAR-Sensor
+
+* GPS
+* IMU
+* LiDAR
+
+
+Es wird eine Protobuf-Datei ausgegeben, welche an die Regelungs- und Steuereinheit übertragen werden kann.
+Diese beinhaltet die geschätzte Position des Fahrzeugs und die damit verbundenen Standardabweichungen, um Ungenauigkeiten zu berücksichtigen.
+
+.Protobuf-Datei der Lokalisierung
+image::Lokalisierung_proto.png[]
 
 //https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/specs/Apollo_5.5_Software_Architecture.md
 //https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_understand_architecture_and_workflow.md

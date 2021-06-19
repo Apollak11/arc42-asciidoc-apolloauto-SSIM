@@ -1,0 +1,52 @@
+[plantuml, Laufzeitdiagramm, png]   
+....
+class BlockProcessor
+class DiagramBlock
+class DitaaBlock
+class PlantUmlBlock
+
+@startuml
+participant Sensorik
+
+Sensorik -> Perceiption: LiDAR, Kamera + Radardaten
+activate Perceiption
+activate Sensorik
+
+Sensorik -> Localization: GPS, IMU + LiDAR-Daten
+activate Localization
+deactivate Sensorik
+
+Map -> Planning: Kartendaten
+activate Planning
+
+Perceiption -> Planning: Aufnahme der Umgebung
+deactivate Perceiption
+
+Localization -> Planning: Fahrzeugposition
+deactivate Localization
+
+
+Planning -> Planning: Veränderung des Fahrzeugverhaltens
+
+Planning -> Control: Geplante Route
+deactivate Planning
+activate Control
+
+Control -> CANBus: Regelungsvorgaben
+activate CANBus
+
+CANBus -> Fahrzeug: Ausführen der Regelungsvorgabe
+
+CANBus -> Monitor: Weitergabe der Regelungsvorgaben
+
+CANBus -> DreamviewHMI: Weitergabe der Regelungsvorgaben
+deactivate CANBus
+activate DreamviewHMI
+
+DreamviewHMI -> Control: Optional: Mode Change request
+deactivate DreamviewHMI
+deactivate Control
+
+
+@enduml
+....

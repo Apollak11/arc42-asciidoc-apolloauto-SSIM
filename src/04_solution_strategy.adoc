@@ -38,6 +38,7 @@ In diesem Kapitel wird ein Überblick über die Architektur geboten. Dabei stehe
 
 Das Gesamtsystem ist grundsätzlich modular aufgebaut. Im Unterordner /modules können die einzelnen Bestandteile eingesehen werden.
 
+.Module in der ApolloAuto Repository
 image::ApolloModules.png[]
 
 In diesen Ordnern sind teilweise weitere Informationen zu den Modulen hinterlegt. Im Kontext dieser Dokumentation werden für das Grundverständnis der Funktionsweise von ApolloAuto folgende Module genauer betrachtet.

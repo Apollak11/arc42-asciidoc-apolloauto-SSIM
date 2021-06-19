@@ -37,6 +37,7 @@ Dieser Abschnitt beschreibt die Schnittstellen von ApolloAuto. Welche Personen u
 
 Interaktion der Software mit den anderen Verkehrsteilnehmern (Sensordaten), den Kartendaten (Fremdsystem) und der Fahrzeugaktorik (Sensordaten).
 
+.Fachlicher Kontext ApolloAuto
 image::FachlicherKontext.png[]
 
 .Externe Kartendaten
@@ -68,6 +69,7 @@ Dem System ist es möglich, Vorgänge wie die Lenkung, Beschleunigung und Bremsv
 
 Technische interaktion des Systems mit externen Beteiligten.
 
+.Technischer Kontext ApolloAuto
 image::TechnischerKontext.png[]
 
 .Sensorschnittstelle

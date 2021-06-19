@@ -1,65 +1,94 @@
 [[section-runtime-view]]
 == Laufzeitsicht
 
-[role="arc42help"]
 Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien. Dabei werden im Gegensatz zur Bausteinsicht dynamische Aspekte visualisiert.
 
-=== Fahrwegermittlung
-[role="arc42help"]
-Sequenzdiagramm
-Zeitliche Abfolge der Kumminikation zwischen Subsystemen in der 1. Ebene von oben nach unten
+=== Annäherung an ein Stoppschild
 
-*  <hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
-*  <hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern>
+Die Fahrwegermittlung ist komplex, grundlegende Zusammenhänge sollen jedoch anhand eines Beispiels beschrieben werden. 
+ApolloAuto verwendet für die Beschreibung komplexer Fahrsituationen Szenarien. Anhand dieser Szenarien können Fahreigenschaften dynamisch an bestimmte Situationen angepasst werden.
+Die vollumfänglichen Möglichkeiten, die in ApolloAuto für diese Szenarien vorgesehen sind, können im Modul Storytelling eingesehen werden.
+So wird hier die Grundlage geschaffen, um Verkehrssituationen mit den verschiedensten Eigenschaften zu beschreiben. Das umfasst beispielsweise Stoppschilder, Ampeln und Fußgängerüberwege.
 
-[role="arc42help"]
+In dieser Komplexität ist jedoch die Betrachtung für eine vereinfachte Laufzeitsicht nicht notwendig.
+Stattdessen betrachten wir Teile des im Planning integrierte Szenarios stop_sign um Interaktionen zwischen Modulen zu verdeutlichen.
+Das stark vereinfachte Beispiel für die visualisierung umfasst daher, dass sich unser Fahrzeug einer Kreuzung mit einem Stoppschild annähert, ohne dass andere Verkehrsteilnehmer involviert sind.
 
-include::Laufzeitdiagramm.adoc[]
+//Am Beispiel der close_to_junction-Story, welche das Verhalten bei Szenarien an Kreuzungen vorgibt, lässt sich ein einfaches Szenario und dessen Auswirkung auf das Gesamtsystem ableiten.
+//
+//image::bibliothekenStorytelling.png[]
+//
+//.Beispielhafter Einblick in die Methoden: GetCrosswalk zur Bestimmung eines naheliegenden Fußgängerüberwegs in close_to_junction_teller.cc
+//image::GetCrosswalk.png[]
+//
+//.Bestimmung der Distanz zum Fußgängerüberweg
+//image::crosswalk.png[]
+//
+//.Übernahme des Fußgängerüberwegs und seiner Distanz in die Story
+//image::closetocrosswalk.png[]
+
+.Sequenzdiagramm für die Annäherung an eine Kreuzung mit Stoppschild
+include::Sequenzdiagramm.adoc[]
+
+
+LiDAR-, Kamera- und Radardaten werden durchgehend an das Perceiption-Modul weitergeleitet, worin diese ausgewertet werden. Parallel dazu erhält auch die Localization Daten von GPS, IMU und LiDAR-Sensoren.
+
+Wird nun ein Stoppschild wahrgenommen, muss das Fahrzeug dafür das Fahrverhalten ändern.
+Dies geschiet in Planning. Das Modul verwendet dafür die Kartendaten aus Map, die Umgebungsaufnahme aus Perceiption und die festgestellte Fahrzeugposition aus Localization.
+In Planning wird das Fahrverhalten für bestimmte Fahrsituationen angepasst. Integriert sind in ApolloAuto derzeit die Szenarien für das Folgen der Fahrspur, Kreuzungen, Fahrspurwechsel, Park-and-go und Notfallsituationen.
+Im vorliegenden Fall wird das Fahrzeugverhalten vom Folgen der Fahrspur auf das Kreuzungsverhalten geändert.
+
+Die daraus resultierende geplante Route wird an das Control-Modul weitergegeben. Dieses gibt die Regelungsvorgaben für das Fahrzeug wiederrum an CANBus weiter. Dort können diese Daten zur Ausführung an das Fahrzeug übermittelt werden.
+Des weiteren können auch Monitor und das Dreamview HMI diese Daten empfangen. In letzterem kann ein Mode Change Request gestellt werden, welcher direkt zur Control zurückführt.
+
+//Sequenzdiagramm
+//Zeitliche Abfolge der Kumminikation zwischen Subsystemen in der 1. Ebene von oben nach unten
+//
+//*  <hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
+//*  <hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern>
+//
+//include::Sequenzdiagramm.adoc[]
 //
 //image::D:/Uni/SoftwareintensiveSystemeinderMobilitaet/Begleitleistung/Begleitleistung/AsciiDocDir/arc42-asciidoc-apolloauto/build/pdf/images/Laufzeitdiagramm.png[]
-
-=== _<Bezeichnung Laufzeitszenario 2>_
-[role="arc42help"]
-...
-
-=== _<Bezeichnung Laufzeitszenario n>_
-[role="arc42help"]
-...
-
+//
+//=== _<Bezeichnung Laufzeitszenario 2>_
+//[role="arc42help"]
+//...
+//
+//=== _<Bezeichnung Laufzeitszenario n>_
+//
+//...
+//
 //https://github.com/ApolloAuto/apollo/tree/master/docs/howto/modules
-
-
-
-
-
-.Inhalt
-Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien aus den folgenden Bereichen:
-
-*  Wichtige Abläufe oder _Features_:
-Wie führen die Bausteine der Architektur die wichtigsten Abläufe durch?
-*  Interaktionen an kritischen externen Schnittstellen:
-Wie arbeiten Bausteine mit Nutzern und Nachbarsystemen zusammen?
-* Betrieb und Administration: Inbetriebnahme, Start, Stop.
-* Fehler- und Ausnahmeszenarien
-
-Anmerkung:
-Das Kriterium für die Auswahl der möglichen Szenarien (d.h. Abläufe) des Systems ist deren Architekturrelevanz.
-Es geht nicht darum, möglichst viele Abläufe darzustellen, sondern eine angemessene Auswahl zu dokumentieren.
-
-.Motivation
-Sie sollten verstehen, wie (Instanzen von) Bausteine(n) Ihres Systems ihre jeweiligen Aufgaben erfüllen und zur Laufzeit miteinander kommunizieren.
-
-Nutzen Sie diese Szenarien in der Dokumentation hauptsächlich für eine verständlichere Kommunikation mit denjenigen Stakeholdern, die die statischen Modelle (z.B. Bausteinsicht, Verteilungssicht) weniger verständlich finden.
-
-.Form
-Für die Beschreibung von Szenarien gibt es zahlreiche Ausdrucksmöglichkeiten.
-Nutzen Sie beispielsweise:
-
-* Nummerierte Schrittfolgen oder Aufzählungen in Umgangssprache
-* Aktivitäts- oder Flussdiagramme
-* Sequenzdiagramme
-* BPMN (Geschäftsprozessmodell und -notation) oder EPKs (Ereignis-Prozessketten)
-* Zustandsautomaten
-* ...
+//
+//.Inhalt
+//Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien aus den folgenden Bereichen:
+//
+//*  Wichtige Abläufe oder _Features_:
+//Wie führen die Bausteine der Architektur die wichtigsten Abläufe durch?
+//*  Interaktionen an kritischen externen Schnittstellen:
+//Wie arbeiten Bausteine mit Nutzern und Nachbarsystemen zusammen?
+//* Betrieb und Administration: Inbetriebnahme, Start, Stop.
+//* Fehler- und Ausnahmeszenarien
+//
+//Anmerkung:
+//Das Kriterium für die Auswahl der möglichen Szenarien (d.h. Abläufe) des Systems ist deren Architekturrelevanz.
+//Es geht nicht darum, möglichst viele Abläufe darzustellen, sondern eine angemessene Auswahl zu dokumentieren.
+//
+//.Motivation
+//Sie sollten verstehen, wie (Instanzen von) Bausteine(n) Ihres Systems ihre jeweiligen Aufgaben erfüllen und zur Laufzeit miteinander kommunizieren.
+//
+//Nutzen Sie diese Szenarien in der Dokumentation hauptsächlich für eine verständlichere Kommunikation mit denjenigen Stakeholdern, die die statischen Modelle (z.B. Bausteinsicht, Verteilungssicht) weniger verständlich finden.
+//
+//.Form
+//Für die Beschreibung von Szenarien gibt es zahlreiche Ausdrucksmöglichkeiten.
+//Nutzen Sie beispielsweise:
+//
+//* Nummerierte Schrittfolgen oder Aufzählungen in Umgangssprache
+//* Aktivitäts- oder Flussdiagramme
+//* Sequenzdiagramme
+//* BPMN (Geschäftsprozessmodell und -notation) oder EPKs (Ereignis-Prozessketten)
+//* Zustandsautomaten
+//* ...
 
 
