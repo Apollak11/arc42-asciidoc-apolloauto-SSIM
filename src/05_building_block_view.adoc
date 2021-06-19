@@ -8,15 +8,44 @@ Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren B
 
 In Kapitel 4 wurden bereits verschiedene Module thematisch unterteilt. Diese Gruppierungen bieten sich auch für die Beschreibung und Interaktion zwischen einzelner Subsysteme an.
 
-image::Ebene1_Bausteinsicht.png
+image::Ebene1_Bausteinsicht.png[]
 
 [cols="1,3" options="header"]
 |===
 |Subsystem |Kurzbeschreibung
-| _Regelungs- und Steuereinheit_ | _Übernimmt die Berechnungsaufgaben des autonomen Fahrens, welche letztendlich das Fahrzeugverhalten vorgeben_
+| _Regelungs- und Steuereinheit_ | _Übernimmt die Berechnungsaufgaben des autonomen Fahrens, welche letztendlich das Fahrzeugverhalten vorgeben. Das Subsystem empfängt Sensordaten, um bspw. Kollisionen zu verhindern._
 | _Überwachungs- und Kontrolleinheit_ | _Verantwortlich für die Übermittlung und Überwachung der Datensätze, die von der Regelungs- und Steuereinheit empfangen werden._
-| _Lokalisierung und Standortverarbeitung_ | _Ubuntu 18.04_
+| _Lokalisierung und Standortverarbeitung_ | _Empfängt Sensordaten, auf deren Basis die Lokalisierung und Standortverarbeitung verwaltet wird._
 |===
+
+Da die genaue Interaktion zwischen den einzelnen Subsystemen gänzlich durch die Module definiert wird, ist die Betrachtung der Schnittstellen innerhalb des Systems auch erst ab der zweiten Ebene sinnvoll, folglich erfolgt diese dort. 
+
+=== Ebene 2: Lokalisierung und Standortverarbeitung
+
+Im folgenden Kapitel wird die Lokalisierung und Standortverarbeitung genauer betrachtet.
+
+
+
+
+==== Map
+
+Kartendaten werden in Verzeichnissen abgelegt, in welchen zusammenhängende Kartendaten abgespeichert werden. Sie folgen dabei der folgenden Struktur:
+
+image::Datenstruktur_Map.png[];
+
+Es wird dabei zwischen der _base_map_, _routing_map_ und _sim_map_ unterschieden. 
+
+.basemap
+Die _base_map_ ist dabei die kompletteste Darstellung mit allen Straßen, Spurgeometrien und weiteren Kennzeichen.
+Aus dieser werden die anderen beiden Karten generiert.
+
+.routing_map
+In dieser wird die Topologie der Fahrbahnen dargestellt.
+
+.sim_map
+Zur Visualisierung vereinfachte Darstellung von _base_map_. Diese kann anschließend von dem Dreamview HMI verwendet werden.
+
+==== Lokalization
 
 //https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/specs/Apollo_5.5_Software_Architecture.md
 //https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_understand_architecture_and_workflow.md

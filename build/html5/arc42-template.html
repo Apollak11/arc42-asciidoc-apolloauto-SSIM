@@ -556,7 +556,7 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#section-building-block-view">5. Bausteinsicht</a>
 <ul class="sectlevel2">
-<li><a href="#_whitebox_gesamtsystem">5.1. Whitebox Gesamtsystem</a></li>
+<li><a href="#_ebene_1">5.1. Ebene 1</a></li>
 </ul>
 </li>
 <li><a href="#section-runtime-view">6. Laufzeitsicht</a>
@@ -1020,6 +1020,10 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <div class="title">Dreamview HMI</div>
 <p>Im Dreamview Human Machine Interface können Ausgabewerte des Fahrzeugs visualisiert werden. Dieses bildet somit die Schnittstelle zum Menschen, über welche eine Überwachung des Fahrzeugzustands möglich ist.</p>
 </div>
+<div class="paragraph">
+<div class="title">Fahrzeugschnittstelle</div>
+<p>Steuerungs-und Regelungsbefehle müssen an die Fahrzeugaktorik weitergeleitet werden.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1211,16 +1215,30 @@ Grundsätzlich lassen sich die Funktionalitäten dabei in folgende Gruppen unter
 <div class="ulist">
 <ul>
 <li>
+<p>In die interne Steuerung integriert</p>
+<div class="ulist">
+<ul>
+<li>
 <p>CANBus</p>
 </li>
 <li>
 <p>Guardian</p>
 </li>
+</ul>
+</div>
+</li>
+<li>
+<p>Funktion als externe Schnittstelle</p>
+<div class="ulist">
+<ul>
 <li>
 <p>Monitor</p>
 </li>
 <li>
 <p>Dreamview HMI</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1238,7 +1256,8 @@ Grundsätzlich lassen sich die Funktionalitäten dabei in folgende Gruppen unter
 </ul>
 </div>
 <div class="paragraph">
-<p>In Common beinhaltet dabei alles, was für mehrere Funktionen von Relevanz ist. In Kapitel 8 wird explizit auf dieses Konzept eingegangen.</p>
+<p>In Common beinhaltet dabei alles, was für mehrere Funktionen von Relevanz ist. In Kapitel 8 wird explizit auf dieses Modul als Konzept eingegangen.
+Bei der Überwachungs- und Kontrolleinheit kann außerdem zwischen dem CANBus und Guardian sowie dem Monitor und der Dreamview HMI unterschieden werden, da diese direkten Zugriff auf die Regelung und Steuerung des Fahrzeugs haben.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1251,106 +1270,42 @@ Grundsätzlich lassen sich die Funktionalitäten dabei in folgende Gruppen unter
 <p>Diese Sicht zeigt die statische Zerlegung des Systems in Bausteine sowie deren Beziehungen. Bausteine der ersten Zerlegungsebene bezeichnen wir in den nachfolgenden Kapiteln als Subsysteme.</p>
 </div>
 <div class="sect2">
-<h3 id="_whitebox_gesamtsystem">5.1. Whitebox Gesamtsystem</h3>
-<div class="sidebarblock">
+<h3 id="_ebene_1">5.1. Ebene 1</h3>
+<div class="paragraph">
+<p>In Kapitel 4 wurden bereits verschiedene Module thematisch unterteilt. Diese Gruppierungen bieten sich auch für die Beschreibung und Interaktion zwischen einzelner Subsysteme an.</p>
+</div>
+<div class="imageblock">
 <div class="content">
+<img src="./images/Ebene1_Bausteinsicht.png" alt="Ebene1 Bausteinsicht">
+</div>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
+<col style="width: 25%;">
+<col style="width: 75%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top"><strong>Name</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Verantwortung</strong></th>
+<th class="tableblock halign-left valign-top">Subsystem</th>
+<th class="tableblock halign-left valign-top">Kurzbeschreibung</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Blackbox 1&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Regelungs- und Steuereinheit</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Übernimmt die Berechnungsaufgaben des autonomen Fahrens, welche letztendlich das Fahrzeugverhalten vorgeben</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;Blackbox 2&gt;</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"> <em>&lt;Text&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Überwachungs- und Kontrolleinheit</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Verantwortlich für die Übermittlung und Überwachung der Datensätze, die von der Regelungs- und Steuereinheit empfangen werden.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Lokalisierung und Standortverarbeitung</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Ubuntu 18.04</em></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_blackbox_1">5.1.1. &lt;Name Blackbox 1&gt;</h4>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Beschreiben Sie die &lt;Blackbox 1&gt; anhand des folgenden Blackbox-Templates:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Zweck/Verantwortung</p>
-</li>
-<li>
-<p>Schnittstelle(n), sofern diese nicht als eigenständige Beschreibungen herausgezogen sind.
-Hierzu gehören eventuell auch Qualitäts- und Leistungsmerkmale dieser Schnittstelle.</p>
-</li>
-<li>
-<p>(Optional) Qualitäts-/Leistungsmerkmale der Blackbox, beispielsweise Verfügbarkeit, Laufzeitverhalten o. Ä.</p>
-</li>
-<li>
-<p>(Optional) Ablageort/Datei(en)</p>
-</li>
-<li>
-<p>(Optional) Erfüllte Anforderungen, falls Sie Traceability zu Anforderungen benötigen.</p>
-</li>
-<li>
-<p>(Optional) Offene Punkte/Probleme/Risiken</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><em>&lt;Zweck/Verantwortung&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;Schnittstelle(n)&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Qualitäts-/Leistungsmerkmale&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Ablageort/Datei(en)&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(Optional) Erfüllte Anforderungen&gt;</em></p>
-</div>
-<div class="paragraph">
-<p><em>&lt;(optional) Offene Punkte/Probleme/Risiken&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_blackbox_2">5.1.2. &lt;Name Blackbox 2&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;Blackbox-Template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_blackbox_n">5.1.3. &lt;Name Blackbox n&gt;</h4>
-<div class="paragraph">
-<p><em>&lt;Blackbox-Template&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_schnittstelle_1">5.1.4. &lt;Name Schnittstelle 1&gt;</h4>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_name_schnittstelle_m">5.1.5. &lt;Name Schnittstelle m&gt;</h4>
 <div style="page-break-after: always;"></div>
-</div>
 </div>
 </div>
 </div>
