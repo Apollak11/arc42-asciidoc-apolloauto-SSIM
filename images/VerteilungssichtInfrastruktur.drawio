@@ -1,1 +1,25 @@
-<mxfile host="app.diagrams.net" modified="2021-06-19T22:05:16.764Z" agent="5.0 (Windows)" version="14.8.0" etag="9z5W96msv8dwCtNyUfR5" type="github"><diagram id="MwdUO_CJIg6ytkyI0lQ3">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-06-19T22:15:59.103Z" agent="5.0 (Windows)" etag="nYM7pt8e1-pd-7PeZDab" version="14.8.0" type="github">
+  <diagram id="MwdUO_CJIg6ytkyI0lQ3" name="Page-1">
+    <mxGraphModel dx="2662" dy="1140" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="300" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4XDBY2IRk2Dw7CC_h-vi-2" value="" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" vertex="1" parent="1">
+          <mxGeometry x="-510" y="190" width="720" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="4XDBY2IRk2Dw7CC_h-vi-3" value="&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;«device»&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;&lt;b&gt;Ubuntu-PC&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-200" y="220" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4XDBY2IRk2Dw7CC_h-vi-4" value="" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" vertex="1" parent="1">
+          <mxGeometry x="-390" y="340" width="510" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="4XDBY2IRk2Dw7CC_h-vi-5" value="&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;«runtime/development Environment»&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;&lt;b&gt;CyberRT + Dev&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-370" y="360" width="500" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4XDBY2IRk2Dw7CC_h-vi-6" value="&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;«&lt;/font&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;system»&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 24px&quot;&gt;&lt;b&gt;ApolloAuto&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-310" y="430" width="370" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
