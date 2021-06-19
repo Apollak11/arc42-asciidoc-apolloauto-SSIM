@@ -1,7 +1,8 @@
 [[section-concepts]]
 == Querschnittliche Konzepte
 
-[role="arc42help"]
+
+=== Common
 
 Dieser Abschnitt beschreibt übergreifende, prinzipielle Regelungen und Lösungsansätze, die an mehreren Stellen relevant sind.
 

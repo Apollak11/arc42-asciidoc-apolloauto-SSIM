@@ -67,7 +67,7 @@ Die folgende Tabelle zeigt zentrale Qualitätsziele von ApolloAuto auf.
 [cols="1,3" options="header"]
 |===
 |Qualitätsziel | Erläuterung
-| _Schnelle Entwicklung autonomer Fahrzeuge (Änderbarkeit)_ | _Entwickler haben die Möglichkeit, funktionsfähige technische Anwendungen mit verhältnismäßig geringem Aufwand zu implementieren._
+| _Vereinfachte Entwicklung autonomer Fahrzeuge (Änderbarkeit)_ | _Entwickler haben die Möglichkeit, funktionsfähige technische Anwendungen mit verhältnismäßig geringem Aufwand zu implementieren._
 | _Schnelle Tests von autonomen Fahrzeugen (Analysierbarkeit)_ | _Neue Implementierungen müssen leicht testbar sein._
 | _Flexible Architektur (Anpassbarkeit)_ | _Durch die schnellen technischen Fortschritte im autonomen Fahren muss die bisherige Architektur leicht angepasst werden können._ 
 | _Verständliche Darstellung (Nutzerfreundlichkeit)_ | _Entwickler, die nicht bei Baidu arbeiten, müssen mit dem vorliegenden Code und den gegebenen Beschreibungen des Systems zurechtkommen._

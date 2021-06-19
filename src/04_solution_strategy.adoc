@@ -1,54 +1,104 @@
 [[section-solution-strategy]]
 == Lösungsstrategie
 
-===Einstieg
+In diesem Kapitel wird ein Überblick über die Architektur geboten. Dabei stehen die Ziele und Lösungsansätze im Fokus.
+
+=== Einstieg
 
 [cols="1,2" options="header"]
 |===
-|Qualitätsziel | Dem zuträgliche Ansätze in der Architektur
-| _Schnelle Entwicklung autonomer Fahrzeuge_ | _Cyber RT Framework; Definierte Schnittstellen (mit Bild vom technischen Kontext Vorkapitel, wo diese sind)_
-| _Schnelle Tests von autonomen Fahrzeugen_ | _Tests vor der Integration ins Fahrzeug? - CyberRT?_
-| _Flexible Architektur_ | _Continious Integration Ansatz, Upload auf Github; Erweiterbarkeit?;_
-| _Verständliche Darstellung_ | _Implementationsbeschreibung über Readme-Dateien in der Repository. Darüber auch zusätzliche Informationen zum Aufbau der Funktionen._
+|Qualitätsziel | Dem zuträgliche Ansätze in der Architektur 
+| _Vereinfachte Entwicklung autonomer Fahrzeuge_	a|
+
+												* _Cyber RT Framework, Laufzeitumgebung die extra für das Autonome Fahren entwickelt wurde_
+												* _Modularer Aufbau der Softwarepakete_
+												* _Python API ermöglicht die Programmierung durch Entwickler, die mit C++ nicht vertraut sind_
+
+| _Schnelle Tests von autonomen Fahrzeugen_		a|	
+
+												* _Dreamview Human Machine Interface zur Überwachung des Fahrzeugzustands_
+| _Flexible Architektur_						a|
+
+												* _Continious Integration Ansatz, bei welchem in Updatezyklen die bestehenden Funktionen erweitert werden_
+												* _Ablage des Repositories auf Github_
+												* _Modularer Ansatz garantiert Erweiterbarkeit_
+| _Verständliche Darstellung_					a|
+
+												* _Implementationsbeschreibung über Readme-Dateien in der Repository_
+												* _Kurzbeschreibungen der Ordnerinhalte_
+												* _Grafische Darstellungen von einigen übergeordneten Ansätzen, wie bspw. der Hardware- und Softwareübersicht_
+| _Hohe Fehlertoleranz_							a|
+
+												* _Guardian, welcher bei kritischen Input-Werten von Steuergerät oder Monitor direkt auf den CANBus zugreifen kann_
+												* _Verwendung vieler verschiedener Sensoren_
 |===
 
-===Aufbau
 
-Unterteilung der verschiedenen Funktionen: Perceiption, Sensoring, Mapping, .....
+=== Modularer Aufbau
 
-===Aufbau2
+Das Gesamtsystem ist grundsätzlich modular aufgebaut. Im Unterordner /modules können die einzelnen Bestandteile eingesehen werden.
 
-//https://github.com/ApolloAuto/apollo/blob/master/docs/howto/how_to_understand_architecture_and_workflow.md !!!
-//rpc, nicht grpc, aufpassen mit ROS, neues system, 
-//Verweis auf:
-//https://github.com/ApolloAuto/apollo/tree/master/modules/common/proto Kommunikationsprotokolle als Protobuf, mit welchen Fehler, Richtungen etc. kommuniziert werden.
+image::ApolloModules.png[]
 
-//Informationen zur Fahrzeugaktiorik:
-//https://github.com/ApolloAuto/apollo/tree/master/modules/canbus Kommunikation im CAN-Bus
+In diesen Ordnern sind teilweise weitere Informationen zu den Modulen hinterlegt. Im Kontext dieser Dokumentation werden für das Grundverständnis der Funktionsweise von ApolloAuto folgende Module genauer betrachtet.
 
-===Anbindung
+* Perception
+* Prediction
+* Planning
+* Control
+* Map
+* Localization
+* CANBus
+* Guardian
+* Monitor
+* Dreamview HMI
+* Common
 
-Wie programmiere ich und wie greife ich auf Schnittstellen zu? Wie kann ich selbst geschriebnene Programmcode zum System beitragen?
+Der Monitor und die Dreamview HMI wurden bereits in Kapitel 3 erläutert, da diese im Zusammenspiel eine Interaktion von außen ermöglichen. In Kapitel 5 werden auch die übrigen Module in die Funktionalität des Gesamtsystems eingeordnet.
+Grundsätzlich lassen sich die Funktionalitäten dabei in folgende Gruppen unterteilen:
 
-****
-.Inhalt
-Kurzer Überblick über die grundlegenden Entscheidungen und Lösungsansätze, die Entwurf und Implementierung des Systems prägen.
-Hierzu gehören:
+* Regelungs- und Steuerungseinheit
+** Perception
+** Prediction
+** Planning
+** Control
 
-* Technologieentscheidungen
-* Entscheidungen über die Top-Level-Zerlegung des Systems, beispielsweise die Verwendung gesamthaft prägender Entwurfs- oder Architekturmuster,
-* Entscheidungen zur Erreichung der wichtigsten Qualitätsanforderungen sowie
-* relevante organisatorische Entscheidungen, beispielsweise für bestimmte Entwicklungsprozesse oder Delegation bestimmter Aufgaben an andere Stakeholder.
+* Lokalisierung und Standortverarbeitung
+** Map
+** Localization
 
-.Motivation
-Diese wichtigen Entscheidungen bilden wesentliche „Eckpfeiler“ der Architektur.
-Von ihnen hängen viele weitere Entscheidungen oder Implementierungsregeln ab.
+* Überwachungs- und Kontrolleinheit
+** In die interne Steuerung integriert
+*** CANBus
+*** Guardian
+** Funktion als externe Schnittstelle
+*** Monitor
+*** Dreamview HMI
 
-.Form
-Fassen Sie die zentralen Entwurfsentscheidungen *kurz* zusammen.
-Motivieren Sie, ausgehend von Aufgabenstellung, Qualitätszielen und Randbedingungen, was Sie entschieden haben und warum Sie so entschieden haben.
-Vermeiden Sie redundante Beschreibungen und verweisen Sie eher auf weitere Ausführungen in Folgeabschnitten.
+* Modulübergreifender Code
+** Common
 
-C++ und Python zur Integration: Für anwendungsorientierte Programmierer aus dem Maschinenbau/der Fahrzeugtechnik und für klassiche Informatiker geeignet
+In Common beinhaltet dabei alles, was für mehrere Funktionen von Relevanz ist. In Kapitel 8 wird explizit auf dieses Modul als Konzept eingegangen. Bei der Überwachungs- und Kontrolleinheit 
 
-****
+//****
+//.Inhalt
+//Kurzer Überblick über die grundlegenden Entscheidungen und Lösungsansätze, die Entwurf und Implementierung des Systems prägen.
+//Hierzu gehören:
+//
+//* Technologieentscheidungen
+//* Entscheidungen über die Top-Level-Zerlegung des Systems, beispielsweise die Verwendung gesamthaft prägender Entwurfs- oder Architekturmuster,
+//* Entscheidungen zur Erreichung der wichtigsten Qualitätsanforderungen sowie
+//* relevante organisatorische Entscheidungen, beispielsweise für bestimmte Entwicklungsprozesse oder Delegation bestimmter Aufgaben an andere Stakeholder.
+//
+//.Motivation
+//Diese wichtigen Entscheidungen bilden wesentliche „Eckpfeiler“ der Architektur.
+//Von ihnen hängen viele weitere Entscheidungen oder Implementierungsregeln ab.
+//
+//.Form
+//Fassen Sie die zentralen Entwurfsentscheidungen *kurz* zusammen.
+//Motivieren Sie, ausgehend von Aufgabenstellung, Qualitätszielen und Randbedingungen, was Sie entschieden haben und warum Sie so entschieden haben.
+//Vermeiden Sie redundante Beschreibungen und verweisen Sie eher auf weitere Ausführungen in Folgeabschnitten.
+//
+//C++ und Python zur Integration: Für anwendungsorientierte Programmierer aus dem Maschinenbau/der Fahrzeugtechnik und für klassiche Informatiker geeignet
+//
+//****
