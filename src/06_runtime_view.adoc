@@ -30,6 +30,8 @@ Das stark vereinfachte Beispiel für die Visualisierung umfasst daher, dass sich
 .Sequenzdiagramm für die Annäherung an eine Kreuzung mit Stoppschild
 include::Sequenzdiagramm.adoc[]
 
+//image::Sequenzdiagramm.png[]
+//Bei der Generierung des .pdfs wurde auf das in der html erstellte Bild zurückgegriffen, da in der pdf die Grafik ansonsten nicht richtig dargestellt wird.
 
 LiDAR-, Kamera- und Radardaten werden durchgehend an das Perceiption-Modul weitergeleitet, worin diese ausgewertet werden. Parallel dazu erhält auch die Localization Daten von GPS, IMU und LiDAR-Sensoren.
 
@@ -37,6 +39,8 @@ Wird nun ein Stoppschild wahrgenommen, muss das Fahrzeug dafür das Fahrverhalte
 Dies geschieht in Planning. Das Modul verwendet dafür die Kartendaten aus Map, die Umgebungsaufnahme aus Perceiption und die festgestellte Fahrzeugposition aus Localization.
 In Planning wird das Fahrverhalten für bestimmte Fahrsituationen angepasst. Integriert sind in ApolloAuto derzeit die Szenarien für das Folgen der Fahrspur, Kreuzungen, Fahrspurwechsel, Park-and-Go und Notfallsituationen.
 Im vorliegenden Fall wird das Fahrzeugverhalten vom Folgen der Fahrspur auf das Kreuzungsverhalten geändert.
+
+<<<<
 
 Die daraus resultierende geplante Route wird an das Control-Modul weitergegeben. Dieses gibt die Regelungsvorgaben für das Fahrzeug wiederrum an CANBus weiter. Dort können diese Daten zur Ausführung an das Fahrzeug übermittelt werden.
 Des weiteren können auch Monitor und das Dreamview HMI diese Daten empfangen. In letzterem kann ein Mode Change Request gestellt werden, welcher direkt zur Control zurückführt.

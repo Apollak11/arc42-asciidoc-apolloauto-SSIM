@@ -5,13 +5,37 @@ Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im Zusamme
 
 === Einstieg
 
-*Was ist autonomes Fahren?
+.Was ist autonomes Fahren?
 
-Level 4 und Level 5 autonomes Fahren
+Im autonomen Fahren wird die Automatisierung des Verkehrs verfolgt. Diese lässt sich in verschiedene Stufen unterteilen.
+
+* Level 1: Assistiertes Fahren
+
+Fahrassistenzsysteme wie Stop-and-Go und Tempomat gehören bei vielen Fahrzeugen bereits heute zur Standardausstattung. Solche Systeme werden als Level 1 Anwendungen des autonomen Fahrens bezeichnet.
+
+* Level 2: Teilautomatisiertes Fahren
+
+Kombinierte Fahrassistenzsysteme werden zu Level 2 autonomen Fahren gezählt. Dazu zählt beispielsweise das automatische Einparken, was viele Neufahrzeuge bereits ausführen können.
+
+* Level 3: Hochautomatisiertes Fahren
+
+Level 3 ist die Weiterentwicklung der Level 2-Systeme, sodass es dem Fahrzeug bereits möglich ist, im Verkehr ohne menschliche Steuerung frei zu bewegen.
+Der Fahrer muss jedoch weiterhin stets bereit sein, in die Steuerung einzugreifen, da keine Garantie übernommen werden kann, dass das Fahrzeug alle Situationen richtig bewertet.
+
+* Level 4: Vollautomatisiertes Fahren
+
+Das Fahrzeug ist in der Lage, komplexe Situationen wie den Stadtverkehr und Autobahnfahrten ohne menschlichen Eingriff gänzlich selbst zu lösen. Auch auf ungewöhnliche Situationen kann das Fahrzeug hierbei angemessen reagieren.
+Ein Eingreifen des Fahrers ist hierbei nicht mehr länger notwendig, sodass man sich als Fahrer nicht auf den Straßenverkehr konzentrieren muss.
+
+* Level 5: Autonomes Fahren
+
+Das Fahrzeug kann sich ganz ohne Insassen frei im Straßenverkehr bewegen und seine Zielpunkte erreichen. Ein Einsatzgebiet dafür könnten beispielsweise autonom fahrende Shuttlebusse oder Taxiservices sein.
+
+<<<<
 
 === Begriffe
 
-*Die folgenden Begriffe werden im Kontext dieser Dokumentation verwendet.
+.Die folgenden Begriffe werden im Kontext dieser Dokumentation verwendet.
 
 [cols="1, 2" options="header"]
 |===

@@ -1009,7 +1009,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <div class="sect2">
 <h3 id="_technischer_kontext">3.2. Technischer Kontext</h3>
 <div class="paragraph">
-<p>Technische interaktion des Systems mit externen Beteiligten.</p>
+<p>Technische Interaktion des Systems mit externen Beteiligten.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1019,7 +1019,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 </div>
 <div class="paragraph">
 <div class="title">Sensorschnittstelle</div>
-<p>Das System verwertet die empfangenen Daten der Fahrzeugsensorik, wie GPS, LiDAR, Radar, Kamerasysteme und eine inertiale Messeinheit. Damit empfängt es sowohl die Informationen zum Fahrzeug, als auch zur umgebenden Verkehrsituation.</p>
+<p>Das System verwertet die empfangenen Daten der Fahrzeugsensorik, wie GPS, LiDAR, Radar, Kamerasysteme und eine inertiale Messeinheit. Damit empfängt es sowohl die Informationen zum Fahrzeug, als auch zur umgebenden Verkehrssituation.</p>
 </div>
 <div class="paragraph">
 <div class="title">Monitor</div>
@@ -1031,7 +1031,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 </div>
 <div class="paragraph">
 <div class="title">Fahrzeugschnittstelle</div>
-<p>Steuerungs-und Regelungsbefehle müssen an die Fahrzeugaktorik weitergeleitet werden.</p>
+<p>Steuerungs- und Regelungsbefehle müssen an die Fahrzeugaktorik weitergeleitet werden.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1104,7 +1104,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p><em>Implementationsbeschreibung über Readme-Dateien in der Repository</em></p>
+<p><em>Implementierungsbeschreibung über Readme-Dateien in der Repository</em></p>
 </li>
 <li>
 <p><em>Kurzbeschreibungen der Ordnerinhalte</em></p>
@@ -1130,6 +1130,7 @@ Es ist sinnvoll, zu unterscheiden, welche Anforderungen an die CPU für die Inst
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_modularer_aufbau">4.2. Modularer Aufbau</h3>
@@ -1267,7 +1268,7 @@ Grundsätzlich lassen sich die Funktionalitäten dabei in folgende Gruppen unter
 </div>
 <div class="paragraph">
 <p>In Common beinhaltet dabei alles, was für mehrere Funktionen von Relevanz ist. In Kapitel 8 wird explizit auf dieses Modul als Konzept eingegangen.
-Bei der Überwachungs- und Kontrolleinheit kann außerdem zwischen dem CANBus und Guardian sowie dem Monitor und der Dreamview HMI unterschieden werden, da diese direkten Zugriff auf die Regelung und Steuerung des Fahrzeugs haben.</p>
+Bei der Überwachungs- und Kontrolleinheit kann außerdem zwischen dem CANBus und Guardian sowie dem Monitor und dem Dreamview HMI unterschieden werden, da diese direkten Zugriff auf die Regelung und Steuerung des Fahrzeugs haben.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1400,7 +1401,7 @@ Die abgerufene map.proto unterteilt sich in eine Header- und eine Map-message.</
 <div class="title">Abbildung 11. map.proto</div>
 </div>
 <div class="paragraph">
-<p>Die Inhalte in Map sind dabei von besonderem interesse. Diese setzen sich aus wiederholenden .proto-Nachrichten zusammen, welche in den weiteren .proto-files des Ordners definiert werden.</p>
+<p>Die Inhalte in Map sind dabei von besonderem Interesse. Diese setzen sich aus wiederholenden .proto-Nachrichten zusammen, welche in den weiteren .proto-files des Ordners definiert werden.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1409,7 +1410,7 @@ Die abgerufene map.proto unterteilt sich in eine Header- und eine Map-message.</
 <div class="title">Abbildung 12. Protobuf-Dateien der Map</div>
 </div>
 <div class="paragraph">
-<p>In diesen werden alle einzelne Informationen zum mapping abgebildet.
+<p>In diesen werden alle einzelnen Informationen zum Mapping abgebildet.
 Beispielsweise beinhaltet map_lane.proto den genauen Straßentypen, wozu unter anderem dessen Fahrspurmarkierungsart, ob es sich um eine Kurve oder Gerade handelt und die dazugehörige Länge gehören.</p>
 </div>
 <div class="imageblock">
@@ -1429,7 +1430,7 @@ Beispielsweise beinhaltet map_lane.proto den genauen Straßentypen, wozu unter a
 </div>
 <div class="paragraph">
 <div class="title">RTK</div>
-<p>Real Time Kinetic Localization verwendet zwei Sensorinputs</p>
+<p>Real Time Kinetic Localization verwendet zwei Sensorinputs.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1443,7 +1444,7 @@ Beispielsweise beinhaltet map_lane.proto den genauen Straßentypen, wozu unter a
 </div>
 <div class="paragraph">
 <div class="title">Multi-Sensor Fusion</div>
-<p>Diese Lokalisierungsmethode ergänzt die bisherige Sensorik um einen LiDAR-Sensor</p>
+<p>Diese Lokalisierungsmethode ergänzt die bisherige Sensorik um einen LiDAR-Sensor.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1490,11 +1491,11 @@ So wird hier die Grundlage geschaffen, um Verkehrssituationen mit den verschiede
 <div class="paragraph">
 <p>In dieser Komplexität ist jedoch die Betrachtung für eine vereinfachte Laufzeitsicht nicht notwendig.
 Stattdessen betrachten wir Teile des im Planning integrierte Szenarios stop_sign um Interaktionen zwischen Modulen zu verdeutlichen.
-Das stark vereinfachte Beispiel für die visualisierung umfasst daher, dass sich unser Fahrzeug einer Kreuzung mit einem Stoppschild annähert, ohne dass andere Verkehrsteilnehmer involviert sind.</p>
+Das stark vereinfachte Beispiel für die Visualisierung umfasst daher, dass sich unser Fahrzeug einer Kreuzung mit einem Stoppschild annähert, ohne dass andere Verkehrsteilnehmer involviert sind.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Laufzeitdiagramm.png" alt="Laufzeitdiagramm" width="1350" height="482">
+<img src="./images/Sequenzdiagramm.png" alt="Sequenzdiagramm" width="1350" height="482">
 </div>
 <div class="title">Abbildung 15. Sequenzdiagramm für die Annäherung an eine Kreuzung mit Stoppschild</div>
 </div>
@@ -1503,10 +1504,11 @@ Das stark vereinfachte Beispiel für die visualisierung umfasst daher, dass sich
 </div>
 <div class="paragraph">
 <p>Wird nun ein Stoppschild wahrgenommen, muss das Fahrzeug dafür das Fahrverhalten ändern.
-Dies geschiet in Planning. Das Modul verwendet dafür die Kartendaten aus Map, die Umgebungsaufnahme aus Perceiption und die festgestellte Fahrzeugposition aus Localization.
-In Planning wird das Fahrverhalten für bestimmte Fahrsituationen angepasst. Integriert sind in ApolloAuto derzeit die Szenarien für das Folgen der Fahrspur, Kreuzungen, Fahrspurwechsel, Park-and-go und Notfallsituationen.
+Dies geschieht in Planning. Das Modul verwendet dafür die Kartendaten aus Map, die Umgebungsaufnahme aus Perceiption und die festgestellte Fahrzeugposition aus Localization.
+In Planning wird das Fahrverhalten für bestimmte Fahrsituationen angepasst. Integriert sind in ApolloAuto derzeit die Szenarien für das Folgen der Fahrspur, Kreuzungen, Fahrspurwechsel, Park-and-Go und Notfallsituationen.
 Im vorliegenden Fall wird das Fahrzeugverhalten vom Folgen der Fahrspur auf das Kreuzungsverhalten geändert.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Die daraus resultierende geplante Route wird an das Control-Modul weitergegeben. Dieses gibt die Regelungsvorgaben für das Fahrzeug wiederrum an CANBus weiter. Dort können diese Daten zur Ausführung an das Fahrzeug übermittelt werden.
 Des weiteren können auch Monitor und das Dreamview HMI diese Daten empfangen. In letzterem kann ein Mode Change Request gestellt werden, welcher direkt zur Control zurückführt.</p>
@@ -1537,7 +1539,9 @@ Des weiteren können auch Monitor und das Dreamview HMI diese Daten empfangen. I
 Parallel zu CyberRT existiert auch noch eine vollumfänglichere Dev-Umgebung.</p>
 </div>
 <div class="paragraph">
-<p>Mithilfe dieser Frameworks kann das System ApolloAuto ausgeführt werden.</p>
+<p>Der PC ist mit verschiedenen anderen Systemen verbunden. Die Sensorik wird über USB und Ethernet angeschlossen.
+Die Kommunikation mit dem Fahrzeug wird sichergestellt, indem über ein PCI ein CAN-Modul angesprochen wird. Peripheriegeräte wie Maus, Tastatur udn Monitor können auch am Rechner angebracht werden.
+Eine Fahrzeugbatterie versorgt den Router, die Sensorik und den Rechner über einen Verteilerblock mit Gleichstrom und 12 Volt Spannung.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -1634,7 +1638,7 @@ Damit folgt die Architektur den Prinzipien Seperation of Concerns und Lose Koppl
 <h3 id="_ros_vs_cyberrt">9.1. ROS vs CyberRT</h3>
 <div class="paragraph">
 <div class="title">Fragestellung</div>
-<p>Zur Entwicklung eines autonom fahrenden Fahrzeugs muss festgelegt weden, mithilfe welches Frameworks dies umgesetzt wird.
+<p>Zur Entwicklung eines autonom fahrenden Fahrzeugs muss festgelegt werden, mithilfe welches Frameworks dies umgesetzt wird.
 Dieses muss verschiedene Funktionen umfassen und eine Programmbibliothek liefern, welche für diesen Anwendungsfall geeignet ist.</p>
 </div>
 <div class="ulist">
@@ -1662,11 +1666,12 @@ Es ermöglicht eine Programmierung in Python und C++ und stellt somit eine gute 
 <p>Bei der Zielsetzung, Level 4 autonomes Fahren umzusetzen, hat man sich jedoch aufgrund der fehlenden Berücksichtigung von Echtzeitanforderungen und einer Bibliothek,
 die nicht dediziert für autonomes Fahren entwickelt wurde, gegen eine Weiterverwendung von ROS entschieden.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <div class="title">Entscheidung: Entwicklung des eigenen Frameworks CyberRT</div>
 <p>Mit Apollo 3.5 wurde das eigens von Baidu entwickelte Framework CyberRT eingeführt.
 Diese auf hohe Performance ausgerichtete Umgebung, die explizit für das autonome Fahren entwickelt wurde, zeichnet sich durch hohe Nebenläufigkeit, geringe Latenz und hohen Datendurchsatz aus.
-Dies soll mehrere Vorteile mit sich bringen:</p>
+Das soll mehrere Vorteile mit sich bringen:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1730,7 +1735,9 @@ Dies soll mehrere Vorteile mit sich bringen:</p>
 <div class="content">
 <img src="./images/Qualitaetsbaum.png" alt="Qualitaetsbaum">
 </div>
+<div class="title">Abbildung 21. Qualitätsbaum</div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_bewertungsszenarien">10.2. Bewertungsszenarien</h3>
@@ -1748,7 +1755,7 @@ Dies soll mehrere Vorteile mit sich bringen:</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>1</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es werden zwei Testszenarien aufgestellt, bei denen eines eine einfache Situation und das zweite ein komplexes Szneario darstellt. Die Ergebnisse werden auf Richtigkeit überprüft.
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es werden zwei Testszenarien aufgestellt, bei denen eines eine einfache Situation und das zweite ein komplexes Szenario darstellt. Die Ergebnisse werden auf Richtigkeit überprüft.
 Außerdem soll getestet werden, ob das einfache Szenario effizient umgesetzt wird. Beides ist gegeben.</em></p></td>
 </tr>
 <tr>
@@ -1804,7 +1811,7 @@ Risikomanagement ist Projektmanagement für Erwachsene.
 <h3 id="_aufwand_der_implementierung">11.1. Aufwand der Implementierung</h3>
 <div class="paragraph">
 <p>Die Implementierung von ApolloAuto ist grundsätzlich sehr komplex. Es müssen alle Hardware- und Softwareanforderungen erfüllt werden, die in den Randbedingungen definiert wurden.
-Das umfasst sowohl das Setup des Fahrzeugs selbst, als auch die Einrichtung des Rechners.</p>
+Das umfasst sowohl das Setup des Fahrzeugs als auch die Einrichtung des Rechners.</p>
 </div>
 <div class="paragraph">
 <div class="title">Risikominderung</div>
@@ -1834,37 +1841,93 @@ Des Weiteren wurde für eine Weiterentwicklung mit dem Ziel des Level 4 autonome
 <div class="sect2">
 <h3 id="_einstieg_2">12.1. Einstieg</h3>
 <div class="paragraph">
-<p>*Was ist autonomes Fahren?</p>
+<div class="title">Was ist autonomes Fahren?</div>
+<p>Im autonomen Fahren wird die Automatisierung des Verkehrs verfolgt. Diese lässt sich in verschiedene Stufen unterteilen.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Level 1: Assistiertes Fahren</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Fahrassistenzsysteme wie Stop-and-Go und Tempomat gehören bei vielen Fahrzeugen bereits heute zur Standardausstattung. Solche Systeme werden als Level 1 Anwendungen des autonomen Fahrens bezeichnet.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Level 2: Teilautomatisiertes Fahren</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Kombinierte Fahrassistenzsysteme werden zu Level 2 autonomen Fahren gezählt. Dazu zählt beispielsweise das automatische Einparken, was viele Neufahrzeuge bereits ausführen können.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Level 3: Hochautomatisiertes Fahren</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Level 3 ist die Weiterentwicklung der Level 2-Systeme, sodass es dem Fahrzeug bereits möglich ist, im Verkehr ohne menschliche Steuerung frei zu bewegen.
+Der Fahrer muss jedoch weiterhin stets bereit sein, in die Steuerung einzugreifen, da keine Garantie übernommen werden kann, dass das Fahrzeug alle Situationen richtig bewertet.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Level 4: Vollautomatisiertes Fahren</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Das Fahrzeug ist in der Lage, komplexe Situationen wie den Stadtverkehr und Autobahnfahrten ohne menschlichen Eingriff gänzlich selbst zu lösen. Auch auf ungewöhnliche Situationen kann das Fahrzeug hierbei angemessen reagieren.
+Ein Eingreifen des Fahrers ist hierbei nicht mehr länger notwendig, sodass man sich als Fahrer nicht auf den Straßenverkehr konzentrieren muss.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Level 5: Autonomes Fahren</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Das Fahrzeug kann sich ganz ohne Insassen frei im Straßenverkehr bewegen und seine Zielpunkte erreichen. Ein Einsatzgebiet dafür könnten beispielsweise autonom fahrende Shuttlebusse oder Taxiservices sein.</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_begriffe">12.2. Begriffe</h3>
-<div class="paragraph">
-<p>*Die folgenden Begriffe werden im Kontext dieser Dokumentation verwendet.</p>
-</div>
 <table class="tableblock frame-all grid-all stretch">
+<caption class="title">Tabelle 3. Die folgenden Begriffe werden im Kontext dieser Dokumentation verwendet.</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 66.6667%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Begriff</th>
-<th class="tableblock halign-left valign-top">Definition</th>
+<th class="tableblock halign-left valign-top"><em>LiDAR</em></th>
+<th class="tableblock halign-left valign-top"><em>Light detection and ranging ist eine mit dem Radar verwandte Methode, die im autonomen Fahren für Abstands- und Geschwindigkeitsmessungen verwendet wird.</em></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Protobuf</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Definition-1&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Radar</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Radio detection and ranging ist ein Erkennungs- und Ortungsverfahren durch elektromagnetische Wellen im Radiofrequenzbereich.</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CAN-Bus</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Definition-2&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>GPS</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Global Positioning System ist ein System zur Navigation und Ortsbestimmung auf Basis von Satellitensignalen</em></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LIdAR</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Definition-2&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>IMU</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Eine interiale Messeinheit (Intertial Measuerement Unit) ist die Kombination verschiedener Sensoren, die Aufschlüsse über den Fahrzeugzustand bieten. Dazu gehören beispielsweise Beschleunigungssensoren und Drehratensensoren.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>HMI</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Ein Human Machine Interface ermöglicht dem Benutzer die Kommunikation mit dem System.</em></p></td>
 </tr>
 </tbody>
 </table>

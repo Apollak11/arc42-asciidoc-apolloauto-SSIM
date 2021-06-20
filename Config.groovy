@@ -9,7 +9,7 @@ inputPath = '.';
 
 inputFiles = [
         [file: 'doctoolchain_demo.adoc',       formats: ['html','pdf']],
-        [file: 'arc42-template.adoc',    formats: ['html','pdf']],
+        [file: 'arc42-ApolloAuto.adoc',    formats: ['html','pdf']],
 ]
 
 
@@ -81,7 +81,7 @@ confluence = [:]
 // only 'file' or 'url' is allowed. If both are given, 'url' is ignored
 confluence.with {
     input = [
-            [ file: "build/html5/arc42-template-de.html" ],
+            [ file: "build/html5/arc42-ApolloAuto.html" ],
     ]
 
     // endpoint of the confluenceAPI (REST) to be used

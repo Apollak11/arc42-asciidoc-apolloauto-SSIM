@@ -7,7 +7,9 @@ Dieser Abschnitt enthält die Qualitätsanforderungen als Qualitätsbaum mit Sze
 
 Aus der folgenden Grafik können die wesentlichen Qualitätsmerkmale entnommen werden.
 
+.Qualitätsbaum
 image::Qualitaetsbaum.png[]
+
 
 <<<<
 

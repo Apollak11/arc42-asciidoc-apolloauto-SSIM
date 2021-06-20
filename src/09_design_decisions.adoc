@@ -25,6 +25,7 @@ Es ermöglicht eine Programmierung in Python und C++ und stellt somit eine gute 
 Bei der Zielsetzung, Level 4 autonomes Fahren umzusetzen, hat man sich jedoch aufgrund der fehlenden Berücksichtigung von Echtzeitanforderungen und einer Bibliothek,
 die nicht dediziert für autonomes Fahren entwickelt wurde, gegen eine Weiterverwendung von ROS entschieden.
 
+<<<<
 
 .Entscheidung: Entwicklung des eigenen Frameworks CyberRT
 

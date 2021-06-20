@@ -1,4 +1,4 @@
-[plantuml, Laufzeitdiagramm, png]   
+[plantuml, Sequenzdiagramm, png]   
 ....
 class BlockProcessor
 class DiagramBlock
