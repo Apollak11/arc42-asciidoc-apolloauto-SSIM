@@ -7,20 +7,17 @@ Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im Zusamme
 
 *Was ist autonomes Fahren?
 
+Level 4 und Level 5 autonomes Fahren
+
 === Begriffe
 
 *Die folgenden Begriffe werden im Kontext dieser Dokumentation verwendet.
 
-
-
 [cols="1, 2" options="header"]
 |===
-|Begriff |Definition
-
-|Protobuf |<Definition-1>
-
-|CAN-Bus |<Definition-2>
-
-|LIdAR |<Definition-2>
-
+|_LiDAR_ | _Light detection and ranging ist eine mit dem Radar verwandte Methode, die im autonomen Fahren für Abstands- und Geschwindigkeitsmessungen verwendet wird._
+|_Radar_ | _Radio detection and ranging ist ein Erkennungs- und Ortungsverfahren durch elektromagnetische Wellen im Radiofrequenzbereich._
+|_GPS_ | _Global Positioning System ist ein System zur Navigation und Ortsbestimmung auf Basis von Satellitensignalen_
+|_IMU_ | _Eine interiale Messeinheit (Intertial Measuerement Unit) ist die Kombination verschiedener Sensoren, die Aufschlüsse über den Fahrzeugzustand bieten. Dazu gehören beispielsweise Beschleunigungssensoren und Drehratensensoren._
+|_HMI_ | _Ein Human Machine Interface ermöglicht dem Benutzer die Kommunikation mit dem System._
 |===

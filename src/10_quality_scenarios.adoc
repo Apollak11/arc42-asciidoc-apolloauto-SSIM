@@ -9,12 +9,14 @@ Aus der folgenden Grafik können die wesentlichen Qualitätsmerkmale entnommen w
 
 image::Qualitaetsbaum.png[]
 
+<<<<
+
 === Bewertungsszenarien
 
 [cols="1,3" options="header"]
 |===
 |Nummer | Szenario
-| _1_ | _Es werden zwei Testszenarien aufgestellt, bei denen eines eine einfache Situation und das zweite ein komplexes Szneario darstellt. Die Ergebnisse werden auf Richtigkeit überprüft. 
+| _1_ | _Es werden zwei Testszenarien aufgestellt, bei denen eines eine einfache Situation und das zweite ein komplexes Szenario darstellt. Die Ergebnisse werden auf Richtigkeit überprüft. 
 Außerdem soll getestet werden, ob das einfache Szenario effizient umgesetzt wird. Beides ist gegeben._
 | _2_ | _Die Anwendung soll auf einem anderen Rechner entwickelt werden, welcher die Hardwareanforderungen erfüllt. ApolloAuto konnte erfolgreich portiert werden._
 | _3_ | _Eine Hochschule will die Anwendung auf unterschiedlichen Fahrzeugen implementieren, welche den Hardwareanforderungen entsprechen. Die Implementierung ist erfolgreich._

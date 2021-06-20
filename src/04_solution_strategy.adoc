@@ -33,6 +33,7 @@ In diesem Kapitel wird ein Überblick über die Architektur geboten. Dabei stehe
 												* _Verwendung vieler verschiedener Sensoren_
 |===
 
+<<<<
 
 === Modularer Aufbau
 

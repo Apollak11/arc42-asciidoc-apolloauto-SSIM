@@ -7,7 +7,7 @@ Im folgenden Kapitel wird eine interessante Entscheidung im Entwicklungsverlauf 
 === ROS vs CyberRT
 
 .Fragestellung
-Zur Entwicklung eines autonom fahrenden Fahrzeugs muss festgelegt weden, mithilfe welches Frameworks dies umgesetzt wird.
+Zur Entwicklung eines autonom fahrenden Fahrzeugs muss festgelegt werden, mithilfe welches Frameworks dies umgesetzt wird.
 Dieses muss verschiedene Funktionen umfassen und eine Programmbibliothek liefern, welche für diesen Anwendungsfall geeignet ist.
 
 .Relevante Einflussfaktoren
@@ -30,7 +30,7 @@ die nicht dediziert für autonomes Fahren entwickelt wurde, gegen eine Weiterver
 
 Mit Apollo 3.5 wurde das eigens von Baidu entwickelte Framework CyberRT eingeführt.
 Diese auf hohe Performance ausgerichtete Umgebung, die explizit für das autonome Fahren entwickelt wurde, zeichnet sich durch hohe Nebenläufigkeit, geringe Latenz und hohen Datendurchsatz aus.
-Dies soll mehrere Vorteile mit sich bringen:
+Das soll mehrere Vorteile mit sich bringen:
 
 * Beschleunigte Entwicklung
 ** Vielzahl an Entwicklungstools

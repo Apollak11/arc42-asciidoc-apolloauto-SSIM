@@ -8,7 +8,7 @@ Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder
 
 === Aufwand der Implementierung
 Die Implementierung von ApolloAuto ist grundsätzlich sehr komplex. Es müssen alle Hardware- und Softwareanforderungen erfüllt werden, die in den Randbedingungen definiert wurden.
-Das umfasst sowohl das Setup des Fahrzeugs selbst, als auch die Einrichtung des Rechners.
+Das umfasst sowohl das Setup des Fahrzeugs als auch die Einrichtung des Rechners.
 
 .Risikominderung
 Installationsanleitungen und Treiber werden in ApolloAuto gestellt.
