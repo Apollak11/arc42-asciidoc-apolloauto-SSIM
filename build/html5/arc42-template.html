@@ -587,19 +587,18 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#section-quality-scenarios">10. Qualitätsanforderungen</a>
 <ul class="sectlevel2">
 <li><a href="#_qualitätsbaum">10.1. Qualitätsbaum</a></li>
-<li><a href="#_qualitätsszenarien">10.2. Qualitätsszenarien</a></li>
+<li><a href="#_bewertungsszenarien">10.2. Bewertungsszenarien</a></li>
 </ul>
 </li>
 <li><a href="#section-technical-risks">11. Risiken und technische Schulden</a>
 <ul class="sectlevel2">
 <li><a href="#_aufwand_der_implementierung">11.1. Aufwand der Implementierung</a></li>
 <li><a href="#_komplexes_gesamtsystem">11.2. Komplexes Gesamtsystem</a></li>
-<li><a href="#_ausstehende_implementierung_vieler_verkehrssituationen">11.3. Ausstehende Implementierung vieler Verkehrssituationen</a></li>
 </ul>
 </li>
 <li><a href="#section-glossary">12. Glossar</a>
 <ul class="sectlevel2">
-<li><a href="#_eistieg">12.1. Eistieg</a></li>
+<li><a href="#_einstieg_2">12.1. Einstieg</a></li>
 <li><a href="#_begriffe">12.2. Begriffe</a></li>
 </ul>
 </li>
@@ -1494,7 +1493,7 @@ Das stark vereinfachte Beispiel für die visualisierung umfasst daher, dass sich
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Laufzeitdiagramm.png" alt="Laufzeitdiagramm" width="1350" height="512">
+<img src="./images/Laufzeitdiagramm.png" alt="Laufzeitdiagramm" width="1350" height="482">
 </div>
 <div class="title">Abbildung 14. Sequenzdiagramm für die Annäherung an eine Kreuzung mit Stoppschild</div>
 </div>
@@ -1571,7 +1570,7 @@ Dem liegt zugrunde, dass Geometriebeschreibungen sowohl für die Vorhersage vom 
 <h3 id="_guardian">8.2. Guardian</h3>
 <div class="paragraph">
 <p>Autonomes Fahren bedarf hohen Sicherheitsanforderungen.
-Um zusätzliche Sicherheiten zu gewähren, ist es sinnvoll, ein Modul zu verwenden, welches eine Schutzfunktion einnimmt und bei kritischen fehlern oder Zuständen das Fahrzeug stoppt.
+Um zusätzliche Sicherheiten zu gewähren, ist es sinnvoll, ein Modul zu verwenden, welches eine Schutzfunktion einnimmt und bei kritischen Fehlern oder Zuständen das Fahrzeug stoppt.
 Solche Zustände können beispielsweise Fehlfunktionen von Sensoren oder erkannte Objekte im Fahrweg sein. Es greift dafür auf die Regelungsdaten des Control-Moduls, den Systemstatus vom Monitor und den Fahrzeugzustand zu.</p>
 </div>
 <div class="imageblock">
@@ -1637,11 +1636,19 @@ Damit folgt die Architektur den Prinzipien Seperation of Concerns und Lose Koppl
 <p>Zur Entwicklung eines autonom fahrenden Fahrzeugs muss festgelegt weden, mithilfe welches Frameworks dies umgesetzt wird.
 Dieses muss verschiedene Funktionen umfassen und eine Programmbibliothek liefern, welche für diesen Anwendungsfall geeignet ist.</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
 <div class="title">Relevante Einflussfaktoren</div>
-<p>Funktionsumfang
-Programmbibliothek
-Anforderungen des Zielsystems</p>
+<ul>
+<li>
+<p>Funktionsumfang</p>
+</li>
+<li>
+<p>Programmbibliothek</p>
+</li>
+<li>
+<p>Anforderungen des Zielsystems</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <div class="title">Alternative: ROS</div>
@@ -1713,79 +1720,66 @@ Dies soll mehrere Vorteile mit sich bringen:</p>
 <div class="paragraph">
 <p>Dieser Abschnitt enthält die Qualitätsanforderungen als Qualitätsbaum mit Szenarien.</p>
 </div>
-<div class="paragraph">
-<div class="title">Inhalt</div>
-<p>Dieser Abschnitt enthält möglichst alle Qualitätsanforderungen als Qualitätsbaum mit Szenarien.
-Die wichtigsten davon haben Sie bereits in Abschnitt 1.2 (Qualitätsziele) hervorgehoben.</p>
-</div>
-<div class="paragraph">
-<p>Nehmen Sie hier auch Qualitätsanforderungen geringerer Priorität auf, deren Nichteinhaltung oder -erreichung geringe Risiken birgt.</p>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Weil Qualitätsanforderungen die Architekturentscheidungen oft maßgeblich beeinflussen, sollten Sie die für Ihre Stakeholder relevanten Qualitätsanforderungen kennen, möglichst konkret und operationalisiert.</p>
-</div>
 <div class="sect2">
 <h3 id="_qualitätsbaum">10.1. Qualitätsbaum</h3>
 <div class="paragraph">
-<div class="title">Inhalt</div>
-<p>Der Qualitätsbaum (à la ATAM) mit Qualitätsszenarien an den Blättern.</p>
+<p>Aus der folgenden Grafik können die wesentlichen Qualitätsmerkmale entnommen werden.</p>
 </div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Die mit Prioritäten versehene Baumstruktur gibt Überblick über die&#8201;&#8212;&#8201;oftmals zahlreichen&#8201;&#8212;&#8201;Qualitätsanforderungen.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/Qualitaetsbaum.png" alt="Qualitaetsbaum">
 </div>
-<div class="ulist">
-<div class="title">Form</div>
-<ul>
-<li>
-<p>Baumartige Verfeinerung des Begriffes „Qualität“, mit „Qualität“ oder „Nützlichkeit“ als Wurzel.</p>
-</li>
-<li>
-<p>Mindmap mit Qualitätsoberbegriffen als Hauptzweige</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In jedem Fall sollten Sie hier Verweise auf die Qualitätsszenarien des folgenden Abschnittes aufnehmen.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_qualitätsszenarien">10.2. Qualitätsszenarien</h3>
-<div class="paragraph">
-<div class="title">Inhalt</div>
-<p>Konkretisierung der (in der Praxis oftmals vagen oder impliziten) Qualitätsanforderungen durch (Qualitäts-)Szenarien.</p>
-</div>
-<div class="paragraph">
-<p>Diese Szenarien beschreiben, was beim Eintreffen eines Stimulus auf ein System in bestimmten Situationen geschieht.</p>
-</div>
-<div class="paragraph">
-<p>Wesentlich sind zwei Arten von Szenarien:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Nutzungsszenarien (auch bekannt als Anwendungs- oder Anwendungsfallszenarien) beschreiben, wie das System zur Laufzeit auf einen bestimmten Auslöser reagieren soll.
-Hierunter fallen auch Szenarien zur Beschreibung von Effizienz oder Performance.
-Beispiel: Das System beantwortet eine Benutzeranfrage innerhalb einer Sekunde.</p>
-</li>
-<li>
-<p>Änderungsszenarien beschreiben eine Modifikation des Systems oder seiner unmittelbaren Umgebung.
-Beispiel: Eine zusätzliche Funktionalität wird implementiert oder die Anforderung an ein Qualitätsmerkmal ändert sich.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Szenarien operationalisieren Qualitätsanforderungen und machen deren Erfüllung mess- oder entscheidbar.</p>
-</div>
-<div class="paragraph">
-<p>Insbesondere wenn Sie die Qualität Ihrer Architektur mit Methoden wie ATAM überprüfen wollen, bedürfen die in Abschnitt 1.2 genannten Qualitätsziele einer weiteren Präzisierung bis auf die Ebene von diskutierbaren und nachprüfbaren Szenarien.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Entweder tabellarisch oder als Freitext.</p>
-</div>
+<h3 id="_bewertungsszenarien">10.2. Bewertungsszenarien</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Nummer</th>
+<th class="tableblock halign-left valign-top">Szenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>1</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Es werden zwei Testszenarien aufgestellt, bei denen eines eine einfache Situation und das zweite ein komplexes Szneario darstellt. Die Ergebnisse werden auf Richtigkeit überprüft.
+Außerdem soll getestet werden, ob das einfache Szenario effizient umgesetzt wird. Beides ist gegeben.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>2</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Die Anwendung soll auf einem anderen Rechner entwickelt werden, welcher die Hardwareanforderungen erfüllt. ApolloAuto konnte erfolgreich portiert werden.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>3</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Eine Hochschule will die Anwendung auf unterschiedlichen Fahrzeugen implementieren, welche den Hardwareanforderungen entsprechen. Die Implementierung ist erfolgreich.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>4</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Die Dreamview HMI ist eine integrierte Auswertungsschnittstelle, welche die Prüfbarkeit vereinfacht.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>5</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Sensorik fällt im laufenden Betrieb aus. Durch den Guardian wird das Fahrzeug gestoppt.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>6</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Das System muss eine komplexe Fahrsituation innerhalb eines kurzen Zeitfensters richtig bewerten und lösen.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>7</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Eine Funktion soll gezielt weiterentwickelt werden. Entwickler können diese explizit in den Modulen anpassen. Andere Module müssen dafür nicht verändert werden.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>8</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Neue Benutzer waren in der Lage, sich innerhalb von nur wenigen Tagen systematisch in die Funktionalität des Gesamtsystems einzuarbeiten.</em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1793,23 +1787,39 @@ Beispiel: Eine zusätzliche Funktionalität wird implementiert oder die Anforder
 <div class="sect1">
 <h2 id="section-technical-risks">11. Risiken und technische Schulden</h2>
 <div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+Risikomanagement ist Projektmanagement für Erwachsene.
+</blockquote>
+<div class="attribution">
+&#8212; Tim Lister<br>
+<cite>Atlantic Systems Guild</cite>
+</div>
+</div>
 <div class="paragraph">
 <p>Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder technischen Schulden.</p>
 </div>
 <div class="sect2">
 <h3 id="_aufwand_der_implementierung">11.1. Aufwand der Implementierung</h3>
 <div class="paragraph">
-<p>Es müssen hardwareseitig alle Voraussetzungen genau erfüllt werden, damit das Setup funktionieren kann.</p>
+<p>Die Implementierung von ApolloAuto ist grundsätzlich sehr komplex. Es müssen alle Hardware- und Softwareanforderungen erfüllt werden, die in den Randbedingungen definiert wurden.
+Das umfasst sowohl das Setup des Fahrzeugs selbst, als auch die Einrichtung des Rechners.</p>
+</div>
+<div class="paragraph">
+<div class="title">Risikominderung</div>
+<p>Installationsanleitungen und Treiber werden in ApolloAuto gestellt.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_komplexes_gesamtsystem">11.2. Komplexes Gesamtsystem</h3>
 <div class="paragraph">
-<p>(?-&#8594;) Für die Entwicklung des Gesamtsystems ist es von großer Bedeutung, sicherzustellen, dass durch Weiterentwicklungen dieses komplexe System nicht funktionsunfähig wird.</p>
+<p>Für die Entwicklung des Gesamtsystems ist es von großer Bedeutung, sicherzustellen, dass durch Weiterentwicklungen dieses komplexe System nicht funktionsunfähig wird.</p>
 </div>
+<div class="paragraph">
+<div class="title">Risikominderung</div>
+<p>Funktionsgruppen werden in Module unterteilt, die klar voneinander getrennte Aufgaben haben.
+Des Weiteren wurde für eine Weiterentwicklung mit dem Ziel des Level 4 autonomen Fahrens mit CyberRT ein eigenes Framework konzipiert, welches extra für autonom fahrende Autos entworfen wurde.</p>
 </div>
-<div class="sect2">
-<h3 id="_ausstehende_implementierung_vieler_verkehrssituationen">11.3. Ausstehende Implementierung vieler Verkehrssituationen</h3>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1817,18 +1827,18 @@ Beispiel: Eine zusätzliche Funktionalität wird implementiert oder die Anforder
 <div class="sect1">
 <h2 id="section-glossary">12. Glossar</h2>
 <div class="sectionbody">
-<div class="paragraph arc42help">
+<div class="paragraph">
 <p>Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im Zusammenhang mit dem System verwenden.</p>
 </div>
 <div class="sect2">
-<h3 id="_eistieg">12.1. Eistieg</h3>
-<div class="paragraph arc42help">
+<h3 id="_einstieg_2">12.1. Einstieg</h3>
+<div class="paragraph">
 <p>*Was ist autonomes Fahren?</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_begriffe">12.2. Begriffe</h3>
-<div class="paragraph arc42help">
+<div class="paragraph">
 <p>*Die folgenden Begriffe werden im Kontext dieser Dokumentation verwendet.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -1857,42 +1867,6 @@ Beispiel: Eine zusätzliche Funktionalität wird implementiert oder die Anforder
 </tr>
 </tbody>
 </table>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<div class="title">Inhalt</div>
-<p>Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im Zusammenhang mit dem System verwenden.</p>
-</div>
-<div class="paragraph">
-<p>Nutzen Sie das Glossar ebenfalls als Übersetzungsreferenz, falls Sie in mehrsprachigen Teams arbeiten.</p>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Sie sollten relevante Begriffe klar definieren, so dass alle Beteiligten</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>diese Begriffe identisch verstehen, und</p>
-</li>
-<li>
-<p>vermeiden, mehrere Begriffe für die gleiche Sache zu haben.</p>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<div class="title">Form</div>
-<ul>
-<li>
-<p>Zweispaltige Tabelle mit &lt;Begriff&gt; und &lt;Definition&gt;</p>
-</li>
-<li>
-<p>Eventuell weitere Spalten mit Übersetzungen, falls notwendig.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1917,7 +1891,7 @@ dass wir noch einige Sachen anders beschreiben.</p>
 Die gestellten Fragestellungen sind sinnvoll angeordnet, um sich nach und nach tiefer einzuarbeiten.</p>
 </div>
 <div class="paragraph">
-<p>Bei der Beschreibung eines Gesamtsystems, an welchem man weder Erfahrungen sammeln konnte noch selbst mitgearbeitet hat, wie in der vorliegenden Aufgabenstellung, kommen jedoch mehrfach Probleme auf.
+<p>Bei der Beschreibung eines Gesamtsystems, an welchem man weder Erfahrungen sammeln konnte noch selbst mitgearbeitet hat, wie in der vorliegenden Aufgabenstellung, kamen jedoch mehrfach Probleme auf.
 Die Arbeitsweise ist grundsätzlich iterativ, da mit der Zeit viele Zusammenhänge immer besser verstanden werden und Fehler oder Unklarheiten auffallen.
 Dadurch, dass viele Kapitel inhaltlich direkt aufeinander aufbauen, bewirken späte Abänderungen große Überarbeitungen an der gesamten Dokumentation.
 So zieht sich beispielsweise eine falsch verstandene Schnittstelle in der Kontextabgrenzung eventuell durch alle Abbdildungen und Beschreibungen der nächsten drei Kapitel.</p>
@@ -1936,7 +1910,7 @@ Aber auch hier gilt - nachdem man es einmal gemacht hat, war es eigentlich ganz 
 <h3 id="_sonstige_anmerkungen">13.4. Sonstige Anmerkungen</h3>
 <div class="paragraph">
 <p>Insgesamt sind wir zwiegespaltener Meinung zu dieser Aufgabe.
-Der kombinierte Aufwand aus einer uns neuen Implementierung, einem sehr komplexen, zu beschreibenden Architektur und dem Umfang von Arc42 bringt uns zeitlich an die Grenzen.</p>
+Der kombinierte Aufwand aus einer uns neuen Implementierung, einer sehr komplexen, zu beschreibenden Architektur und dem Umfang von Arc42 bringt uns zeitlich an die Grenzen.</p>
 </div>
 <div class="paragraph">
 <p>Gleichzeitig ist es schwer zu sagen, worauf man hätte verzichten sollen.

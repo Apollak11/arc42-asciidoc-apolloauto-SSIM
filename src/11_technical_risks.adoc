@@ -1,27 +1,21 @@
 [[section-technical-risks]]
 == Risiken und technische Schulden
+
+"Risikomanagement ist Projektmanagement für Erwachsene."
+-- Tim Lister, Atlantic Systems Guild
+
 Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder technischen Schulden.
 
-
-//.Inhalt
-//
-//
-//.Motivation
-//"Risikomanagement ist Projektmanagement für Erwachsene."
-//-- Tim Lister, Atlantic Systems Guild
-//
-//Unter diesem Motto sollten Sie Architekturrisiken und/oder technische Schulden gezielt ermitteln, bewerten und Ihren Management-Stakeholdern (z.B. Projektleitung, Product-Owner) transparent machen.
-//
-//.Form
-//Liste oder Tabelle von Risiken und/oder technischen Schulden, eventuell mit vorgeschlagenen Maßnahmen zur Risikovermeidung, Risikominimierung oder dem Abbau der technischen Schulden.
-
-
 === Aufwand der Implementierung
-Es müssen hardwareseitig alle Voraussetzungen genau erfüllt werden, damit das Setup funktionieren kann.
+Die Implementierung von ApolloAuto ist grundsätzlich sehr komplex. Es müssen alle Hardware- und Softwareanforderungen erfüllt werden, die in den Randbedingungen definiert wurden.
+Das umfasst sowohl das Setup des Fahrzeugs selbst, als auch die Einrichtung des Rechners.
 
+.Risikominderung
+Installationsanleitungen und Treiber werden in ApolloAuto gestellt.
 
 === Komplexes Gesamtsystem
-(?-->) Für die Entwicklung des Gesamtsystems ist es von großer Bedeutung, sicherzustellen, dass durch Weiterentwicklungen dieses komplexe System nicht funktionsunfähig wird.
+Für die Entwicklung des Gesamtsystems ist es von großer Bedeutung, sicherzustellen, dass durch Weiterentwicklungen dieses komplexe System nicht funktionsunfähig wird.
 
-
-=== Ausstehende Implementierung vieler Verkehrssituationen
+.Risikominderung
+Funktionsgruppen werden in Module unterteilt, die klar voneinander getrennte Aufgaben haben.
+Des Weiteren wurde für eine Weiterentwicklung mit dem Ziel des Level 4 autonomen Fahrens mit CyberRT ein eigenes Framework konzipiert, welches extra für autonom fahrende Autos entworfen wurde.

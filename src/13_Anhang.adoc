@@ -14,7 +14,7 @@ dass wir noch einige Sachen anders beschreiben.
 Arc42 hat bei der Aufarbeitung von ApolloAuto sehr geholfen, da es eine Struktur bietet, nach welcher man sich durch das Gesamtsystem arbeiten kann.
 Die gestellten Fragestellungen sind sinnvoll angeordnet, um sich nach und nach tiefer einzuarbeiten.
 
-Bei der Beschreibung eines Gesamtsystems, an welchem man weder Erfahrungen sammeln konnte noch selbst mitgearbeitet hat, wie in der vorliegenden Aufgabenstellung, kommen jedoch mehrfach Probleme auf.
+Bei der Beschreibung eines Gesamtsystems, an welchem man weder Erfahrungen sammeln konnte noch selbst mitgearbeitet hat, wie in der vorliegenden Aufgabenstellung, kamen jedoch mehrfach Probleme auf.
 Die Arbeitsweise ist grundsätzlich iterativ, da mit der Zeit viele Zusammenhänge immer besser verstanden werden und Fehler oder Unklarheiten auffallen.
 Dadurch, dass viele Kapitel inhaltlich direkt aufeinander aufbauen, bewirken späte Abänderungen große Überarbeitungen an der gesamten Dokumentation.
 So zieht sich beispielsweise eine falsch verstandene Schnittstelle in der Kontextabgrenzung eventuell durch alle Abbdildungen und Beschreibungen der nächsten drei Kapitel.
@@ -29,7 +29,7 @@ Aber auch hier gilt - nachdem man es einmal gemacht hat, war es eigentlich ganz 
 === Sonstige Anmerkungen
 
 Insgesamt sind wir zwiegespaltener Meinung zu dieser Aufgabe.
-Der kombinierte Aufwand aus einer uns neuen Implementierung, einem sehr komplexen, zu beschreibenden Architektur und dem Umfang von Arc42 bringt uns zeitlich an die Grenzen.
+Der kombinierte Aufwand aus einer uns neuen Implementierung, einer sehr komplexen, zu beschreibenden Architektur und dem Umfang von Arc42 bringt uns zeitlich an die Grenzen.
 
 Gleichzeitig ist es schwer zu sagen, worauf man hätte verzichten sollen.
 Dass die Inhalte nicht nur kurz in der Vorlesung angesprochen wurden, sondern inklusive der Implementierung auf dem eigenen Computer bearbeitet werden mussten, hat für den Lerneffekt einen enormen Mehrwert.
