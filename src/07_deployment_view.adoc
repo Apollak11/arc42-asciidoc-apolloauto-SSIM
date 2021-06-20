@@ -15,4 +15,6 @@ image::VerteilungssichtInfrastruktur.png[]
 Auf einem Ubuntu-PC ist zunächst die Laufzeit bzw. Entwicklungsumgebung zu installieren. Seit Apollo 3.5 wird dafür die speziell für ApolloAuto entwickelte Umgebung CyberRT verwendet, welche ROS abgelöst hat.
 Parallel zu CyberRT existiert auch noch eine vollumfänglichere Dev-Umgebung.
 
-Mithilfe dieser Frameworks kann das System ApolloAuto ausgeführt werden.
+Der PC ist mit verschiedenen anderen Systemen verbunden. Die Sensorik wird über USB und Ethernet angeschlossen.
+Die Kommunikation mit dem Fahrzeug wird sichergestellt, indem über ein PCI ein CAN-Modul angesprochen wird. Peripheriegeräte wie Maus, Tastatur udn Monitor können auch am Rechner angebracht werden.
+Eine Fahrzeugbatterie versorgt den Router, die Sensorik und den Rechner über einen Verteilerblock mit Gleichstrom und 12 Volt Spannung.
