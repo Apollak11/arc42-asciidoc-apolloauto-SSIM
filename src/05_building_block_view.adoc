@@ -66,12 +66,12 @@ Die abgerufene map.proto unterteilt sich in eine Header- und eine Map-message.
 .map.proto
 image::map_proto.png[]
 
-Die Inhalte in Map sind dabei von besonderem interesse. Diese setzen sich aus wiederholenden .proto-Nachrichten zusammen, welche in den weiteren .proto-files des Ordners definiert werden.
+Die Inhalte in Map sind dabei von besonderem Interesse. Diese setzen sich aus wiederholenden .proto-Nachrichten zusammen, welche in den weiteren .proto-files des Ordners definiert werden.
 
 .Protobuf-Dateien der Map
 image::weitereprotofiles.png[]
 
-In diesen werden alle einzelne Informationen zum mapping abgebildet.
+In diesen werden alle einzelnen Informationen zum Mapping abgebildet.
 Beispielsweise beinhaltet map_lane.proto den genauen Straßentypen, wozu unter anderem dessen Fahrspurmarkierungsart, ob es sich um eine Kurve oder Gerade handelt und die dazugehörige Länge gehören.
 
 .Beispiel einer spezifischen Information in den .proto-files
@@ -84,13 +84,13 @@ Die geladenen Kartendaten können an die Lokalisierung und Regelungs- und Steuer
 Zur Lokalisierung werden zwei verschiedene Methoden verwendet:
 
 .RTK
-Real Time Kinetic Localization verwendet zwei Sensorinputs
+Real Time Kinetic Localization verwendet zwei Sensorinputs.
 
 * GPS
 * IMU
 
 .Multi-Sensor Fusion
-Diese Lokalisierungsmethode ergänzt die bisherige Sensorik um einen LiDAR-Sensor
+Diese Lokalisierungsmethode ergänzt die bisherige Sensorik um einen LiDAR-Sensor.
 
 * GPS
 * IMU

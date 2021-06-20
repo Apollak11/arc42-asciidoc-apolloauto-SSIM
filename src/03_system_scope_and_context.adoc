@@ -67,13 +67,13 @@ Dem System ist es möglich, Vorgänge wie die Lenkung, Beschleunigung und Bremsv
 //Beispielsweise UML Deployment-Diagramme mit den Kanälen zu Nachbarsystemen, begleitet von einer Tabelle, die Kanäle auf Ein-/Ausgaben abbildet.
 //https://github.com/ApolloAuto/apollo/blob/r5.5.0/docs/specs/Apollo_5.5_Software_Architecture.md
 
-Technische interaktion des Systems mit externen Beteiligten.
+Technische Interaktion des Systems mit externen Beteiligten.
 
 .Technischer Kontext ApolloAuto
 image::TechnischerKontext.png[]
 
 .Sensorschnittstelle
-Das System verwertet die empfangenen Daten der Fahrzeugsensorik, wie GPS, LiDAR, Radar, Kamerasysteme und eine inertiale Messeinheit. Damit empfängt es sowohl die Informationen zum Fahrzeug, als auch zur umgebenden Verkehrsituation.
+Das System verwertet die empfangenen Daten der Fahrzeugsensorik, wie GPS, LiDAR, Radar, Kamerasysteme und eine inertiale Messeinheit. Damit empfängt es sowohl die Informationen zum Fahrzeug, als auch zur umgebenden Verkehrssituation.
 
 .Monitor
 Der Monitor ermöglicht die externe Überwachung von Fahrzeugzuständen. Bei bestimmten, festgelegten Zuständen wird in das System eingegriffen. Außerdem ermöglicht es diese Zustände an die Dreamview HMI weiterleiten.
@@ -82,4 +82,4 @@ Der Monitor ermöglicht die externe Überwachung von Fahrzeugzuständen. Bei bes
 Im Dreamview Human Machine Interface können Ausgabewerte des Fahrzeugs visualisiert werden. Dieses bildet somit die Schnittstelle zum Menschen, über welche eine Überwachung des Fahrzeugzustands möglich ist.
 
 .Fahrzeugschnittstelle
-Steuerungs-und Regelungsbefehle müssen an die Fahrzeugaktorik weitergeleitet werden.
+Steuerungs- und Regelungsbefehle müssen an die Fahrzeugaktorik weitergeleitet werden.
