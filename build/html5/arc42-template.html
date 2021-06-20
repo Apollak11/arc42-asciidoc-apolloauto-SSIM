@@ -567,19 +567,16 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#section-deployment-view">7. Verteilungssicht</a>
 <ul class="sectlevel2">
-<li><a href="#_infrastruktur_ebene_1">7.1. Infrastruktur Ebene 1</a></li>
-<li><a href="#_infrastruktur_ebene_2">7.2. Infrastruktur Ebene 2</a></li>
+<li><a href="#_infrastruktur">7.1. Infrastruktur</a></li>
 </ul>
 </li>
 <li><a href="#section-concepts">8. Querschnittliche Konzepte</a>
 <ul class="sectlevel2">
 <li><a href="#_common">8.1. Common</a></li>
-<li><a href="#_protobuf_schnittstelle">8.2. <em>Protobuf-Schnittstelle</em></a></li>
-<li><a href="#_funktionale_abgrenzung">8.3. <em>Funktionale Abgrenzung</em></a></li>
-<li><a href="#_sicherheit_ausnahme_und_fehlerbehandlung">8.4. <em>Sicherheit, Ausnahme- und Fehlerbehandlung</em></a></li>
-<li><a href="#_common_2">8.5. <em>common</em></a></li>
-<li><a href="#_guardian">8.6. <em>guardian</em></a></li>
-<li><a href="#_drive">8.7. <em>drive</em></a></li>
+<li><a href="#_guardian">8.2. Guardian</a></li>
+<li><a href="#_drivers">8.3. Drivers</a></li>
+<li><a href="#_protocol_buffers">8.4. Protocol Buffers</a></li>
+<li><a href="#_funktionale_abgrenzung">8.5. Funktionale Abgrenzung</a></li>
 </ul>
 </li>
 <li><a href="#section-design-decisions">9. Entwurfsentscheidungen</a>
@@ -597,12 +594,21 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel2">
 <li><a href="#_aufwand_der_implementierung">11.1. Aufwand der Implementierung</a></li>
 <li><a href="#_komplexes_gesamtsystem">11.2. Komplexes Gesamtsystem</a></li>
+<li><a href="#_ausstehende_implementierung_vieler_verkehrssituationen">11.3. Ausstehende Implementierung vieler Verkehrssituationen</a></li>
 </ul>
 </li>
 <li><a href="#section-glossary">12. Glossar</a>
 <ul class="sectlevel2">
 <li><a href="#_eistieg">12.1. Eistieg</a></li>
 <li><a href="#_begriffe">12.2. Begriffe</a></li>
+</ul>
+</li>
+<li><a href="#section-Anhang">13. Anhang</a>
+<ul class="sectlevel2">
+<li><a href="#_erfahrungen_mit_apollo">13.1. Erfahrungen mit Apollo</a></li>
+<li><a href="#_erfahrungen_mit_arc42">13.2. Erfahrungen mit Arc42</a></li>
+<li><a href="#_erfahrungen_mit_doctoolchain">13.3. Erfahrungen mit docToolchain</a></li>
+<li><a href="#_sonstige_anmerkungen">13.4. Sonstige Anmerkungen</a></li>
 </ul>
 </li>
 </ul>
@@ -1488,7 +1494,7 @@ Das stark vereinfachte Beispiel für die visualisierung umfasst daher, dass sich
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="./images/Laufzeitdiagramm.png" alt="Laufzeitdiagramm" width="1350" height="482">
+<img src="./images/Laufzeitdiagramm.png" alt="Laufzeitdiagramm" width="1350" height="512">
 </div>
 <div class="title">Abbildung 14. Sequenzdiagramm für die Annäherung an eine Kreuzung mit Stoppschild</div>
 </div>
@@ -1512,266 +1518,108 @@ Des weiteren können auch Monitor und das Dreamview HMI diese Daten empfangen. I
 <div class="sect1">
 <h2 id="section-deployment-view">7. Verteilungssicht</h2>
 <div class="sectionbody">
-<div class="paragraph arc42help">
-<div class="title">Inhalt</div>
-<p>Die Verteilungssicht beschreibt:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>die technische Infrastruktur, auf der Ihr System ausgeführt wird, mit Infrastrukturelementen wie Standorten, Umgebungen, Rechnern, Prozessoren, Kanälen und Netztopologien sowie sonstigen Bestandteilen, und</p>
-</li>
-<li>
-<p>die Abbildung von (Software-)Bausteinen auf dieser Infrastruktur.</p>
-</li>
-</ol>
-</div>
 <div class="paragraph">
-<p>Häufig laufen Systeme in unterschiedlichen Umgebungen, beispielsweise Entwicklung-/Test- oder Produktionsumgebungen.
-In solchen Fällen sollten Sie alle relevanten Umgebungen aufzeigen.</p>
-</div>
-<div class="paragraph">
-<p>Nutzen Sie die Verteilungssicht insbesondere dann, wenn Ihre Software auf mehr als einem Rechner, Prozessor, Server oder Container abläuft oder Sie Ihre Hardware sogar selbst konstruieren.</p>
-</div>
-<div class="paragraph">
-<p>Aus Softwaresicht genügt es, auf die Aspekte zu achten, die für die Softwareverteilung relevant sind.
-Insbesondere bei der Hardwareentwicklung kann es notwendig sein, die Infrastruktur mit beliebigen Details zu beschreiben.</p>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Software läuft nicht ohne Infrastruktur.
-Diese zugrundeliegende Infrastruktur beeinflusst Ihr System und/oder querschnittliche Lösungskonzepte, daher müssen Sie diese Infrastruktur kennen.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Das oberste Verteilungsdiagramm könnte bereits in Ihrem technischen Kontext enthalten sein, mit Ihrer Infrastruktur als EINE Blackbox.
-Jetzt zoomen Sie in diese Infrastruktur mit weiteren Verteilungsdiagrammen hinein:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Die UML stellt mit Verteilungsdiagrammen (Deployment diagrams) eine Diagrammart zur Verfügung, um diese Sicht auszudrücken.
-Nutzen Sie diese, evtl. auch geschachtelt, wenn Ihre Verteilungsstruktur es verlangt.</p>
-</li>
-<li>
-<p>Falls Ihre Infrastruktur-Stakeholder andere Diagrammarten bevorzugen, die beispielsweise Prozessoren und Kanäle zeigen, sind diese hier ebenfalls einsetzbar.</p>
-</li>
-</ul>
+<p>In der Verteilungssicht wird auf den Betrieb von ApolloAuto eingegangen. Was ist die Umgebung, in der die Software ausgeführt wird?</p>
 </div>
 <div class="sect2">
-<h3 id="_infrastruktur_ebene_1">7.1. Infrastruktur Ebene 1</h3>
-<div class="sidebarblock arc42help">
+<h3 id="_infrastruktur">7.1. Infrastruktur</h3>
+<div class="paragraph">
+<p>Im Verteilungsdiagramm wird die Implementierung von ApolloAuto auf einem Ubuntu-PC aufgezeigt. Innerhalb dieses devices kommuniziert ApolloAuto mit keinen weiteren Programmen.</p>
+</div>
+<div class="imageblock">
 <div class="content">
-<div class="paragraph">
-<p>An dieser Stelle beschreiben Sie (als Kombination von Diagrammen mit Tabellen oder Texten):</p>
+<img src="./images/VerteilungssichtInfrastruktur.png" alt="VerteilungssichtInfrastruktur">
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>die Verteilung des Gesamtsystems auf mehrere Standorte, Umgebungen, Rechner, Prozessoren o. Ä., sowie die physischen Verbindungskanäle zwischen diesen,</p>
-</li>
-<li>
-<p>wichtige Begründungen für diese Verteilungsstruktur,</p>
-</li>
-<li>
-<p>Qualitäts- und/oder Leistungsmerkmale dieser Infrastruktur,</p>
-</li>
-<li>
-<p>Zuordnung von Softwareartefakten zu Bestandteilen der Infrastruktur</p>
-</li>
-</ul>
+<div class="title">Abbildung 15. Deployment von ApolloAuto auf Ubuntu</div>
 </div>
 <div class="paragraph">
-<p>Für mehrere Umgebungen oder alternative Deployments kopieren Sie diesen Teil von arc42 für alle wichtigen Umgebungen/Varianten.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><em><strong>&lt;Übersichtsdiagramm&gt;</strong></em></p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Begründung</dt>
-<dd>
-<p><em>&lt;Erläuternder Text&gt;</em></p>
-</dd>
-<dt class="hdlist1">Qualitäts- und/oder Leistungsmerkmale</dt>
-<dd>
-<p><em>&lt;Erläuternder Text&gt;</em></p>
-</dd>
-<dt class="hdlist1">Zuordnung von Bausteinen zu Infrastruktur</dt>
-<dd>
-<p><em>&lt;Beschreibung der Zuordnung&gt;</em></p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_infrastruktur_ebene_2">7.2. Infrastruktur Ebene 2</h3>
-<div class="sidebarblock arc42help">
-<div class="content">
-<div class="paragraph">
-<p>An dieser Stelle können Sie den inneren Aufbau (einiger) Infrastrukturelemente aus Ebene 1 beschreiben.</p>
+<p>Auf einem Ubuntu-PC ist zunächst die Laufzeit bzw. Entwicklungsumgebung zu installieren. Seit Apollo 3.5 wird dafür die speziell für ApolloAuto entwickelte Umgebung CyberRT verwendet, welche ROS abgelöst hat.
+Parallel zu CyberRT existiert auch noch eine vollumfänglichere Dev-Umgebung.</p>
 </div>
 <div class="paragraph">
-<p>Für jedes Infrastrukturelement kopieren Sie die Struktur aus Ebene 1.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_infrastrukturelement_1">7.2.1. <em>&lt;Infrastrukturelement 1&gt;</em></h4>
-<div class="paragraph arc42help">
-<p><em>&lt;Diagramm + Erläuterungen&gt;</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_infrastrukturelement_2">7.2.2. <em>&lt;Infrastrukturelement 2&gt;</em></h4>
-<div class="paragraph arc42help">
-<p><em>&lt;Diagramm + Erläuterungen&gt;</em></p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_infrastrukturelement_n">7.2.3. <em>&lt;Infrastrukturelement n&gt;</em></h4>
-<div class="paragraph arc42help">
-<p><em>&lt;Diagramm + Erläuterungen&gt;</em></p>
-</div>
-<div class="paragraph">
-<p>Unabhängig von der Installation, welche implementiert werden soll, muss stets zunächst die Apollo Version 1.0 installiert werden.</p>
+<p>Mithilfe dieser Frameworks kann das System ApolloAuto ausgeführt werden.</p>
 </div>
 <div style="page-break-after: always;"></div>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="section-concepts">8. Querschnittliche Konzepte</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>In diesem Kapitel werden Konzepte aufgeführt, die systemweite Bedeutung haben.</p>
+</div>
 <div class="sect2">
 <h3 id="_common">8.1. Common</h3>
 <div class="paragraph">
-<p>Dieser Abschnitt beschreibt übergreifende, prinzipielle Regelungen und Lösungsansätze, die an mehreren Stellen relevant sind.</p>
+<p>Dateien, die in common-Ordnern aufgeführt werden, sind für mehrere Funktionen im übergeordneten Ordner von Bedeutung. Anschaulich kann dies am modules-Ordner aufgezeigt werden.</p>
 </div>
-<div class="sidebarblock">
+<div class="imageblock">
 <div class="content">
-<div class="paragraph">
-<div class="title">Inhalt</div>
-<p>Dieser Abschnitt beschreibt übergreifende, prinzipielle Regelungen und Lösungsansätze, die an mehreren Stellen (=<em>querschnittlich</em>) relevant sind.</p>
+<img src="./images/common_modules.png" alt="common modules">
+</div>
+<div class="title">Abbildung 16. common-Ordner bei den modules</div>
 </div>
 <div class="paragraph">
-<p>Solche Konzepte betreffen oft mehrere Bausteine.
-Dazu können vielerlei Themen gehören, beispielsweise:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>fachliche Modelle,</p>
-</li>
-<li>
-<p>eingesetzte Architektur- oder Entwurfsmuster,</p>
-</li>
-<li>
-<p>Regeln für den konkreten Einsatz von Technologien,</p>
-</li>
-<li>
-<p>prinzipielle&#8201;&#8212;&#8201;meist technische&#8201;&#8212;&#8201;Festlegungen übergreifender Art,</p>
-</li>
-<li>
-<p>Implementierungsregeln</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<div class="title">Motivation</div>
-<p>Konzepte bilden die Grundlage für <em>konzeptionelle Integrität</em> (Konsistenz, Homogenität) der Architektur und damit eine wesentliche Grundlage für die innere Qualität Ihrer Systeme.</p>
-</div>
-<div class="paragraph">
-<p>Manche dieser Themen lassen sich nur schwer als Baustein in der Architektur unterbringen (z.B. das Thema „Sicherheit“).
-Hier ist der Platz im Template, wo Sie derartige Themen geschlossen behandeln können.</p>
-</div>
-<div class="paragraph">
-<div class="title">Form</div>
-<p>Kann vielfältig sein:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Konzeptpapiere mit beliebiger Gliederung,</p>
-</li>
-<li>
-<p>übergreifende Modelle/Szenarien mit Notationen, die Sie auch in den Architektursichten nutzen,</p>
-</li>
-<li>
-<p>beispielhafte Implementierung speziell für technische Konzepte,</p>
-</li>
-<li>
-<p>Verweise auf „übliche“ Nutzung von Standard-Frameworks (beispielsweise die Nutzung von Hibernate als Object/Relational Mapper).</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<div class="title">Struktur</div>
-<p>Eine mögliche (nicht aber notwendige!) Untergliederung dieses Abschnittes könnte wie folgt aussehen (wobei die Zuordnung von Themen zu den Gruppen nicht immer eindeutig ist):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Fachliche Konzepte</p>
-</li>
-<li>
-<p>User Experience (UX)</p>
-</li>
-<li>
-<p>Sicherheitskonzepte (Safety und Security)</p>
-</li>
-<li>
-<p>Architektur- und Entwurfsmuster</p>
-</li>
-<li>
-<p>Unter-der-Haube</p>
-</li>
-<li>
-<p>Entwicklungskonzepte</p>
-</li>
-<li>
-<p>Betriebskonzepte</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/08-Crosscutting-Concepts-Structure-DE.png" alt="Possible topics for crosscutting concepts"></span></p>
-</div>
-</div>
+<p>Die Inhalte in diesem Ordner zeichnen sich dadurch aus, dass sie für mehrere andere Module auch von Bedeutung sind.
+Anstatt sie daher für alle Funktionen einzeln festzulegen, wird ein allgemeingültiger Standard gesetzt, der von allen anderen Modulen implementiert wird.
+So wird beispielsweise die Protobuf-Datei geometry.proto unter anderem von den Modulen Prediction und Planning verwendet.
+Dem liegt zugrunde, dass Geometriebeschreibungen sowohl für die Vorhersage vom Verhalten anderer Verkehrsteilnehmer, als auch für die allgemeine Routenplanung von Bedeutung sind.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_protobuf_schnittstelle">8.2. <em>Protobuf-Schnittstelle</em></h3>
-<div class="paragraph arc42help">
-<p><em>&lt;Erklärung&gt;</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_funktionale_abgrenzung">8.3. <em>Funktionale Abgrenzung</em></h3>
+<h3 id="_guardian">8.2. Guardian</h3>
 <div class="paragraph">
-<p><em>&lt;Erklärung&gt;</em></p>
+<p>Autonomes Fahren bedarf hohen Sicherheitsanforderungen.
+Um zusätzliche Sicherheiten zu gewähren, ist es sinnvoll, ein Modul zu verwenden, welches eine Schutzfunktion einnimmt und bei kritischen fehlern oder Zuständen das Fahrzeug stoppt.
+Solche Zustände können beispielsweise Fehlfunktionen von Sensoren oder erkannte Objekte im Fahrweg sein. Es greift dafür auf die Regelungsdaten des Control-Moduls, den Systemstatus vom Monitor und den Fahrzeugzustand zu.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/FehlerGuardian.png" alt="FehlerGuardian">
+</div>
+<div class="title">Abbildung 17. Beispiel für Fehler, der einen Eingriff durch den Guardian verursacht</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sicherheit_ausnahme_und_fehlerbehandlung">8.4. <em>Sicherheit, Ausnahme- und Fehlerbehandlung</em></h3>
-
+<h3 id="_drivers">8.3. Drivers</h3>
+<div class="paragraph">
+<p>Die Implementierung eines Systems mit so vielen unterschiedlichen Schnittstellen kann für den Anwender sehr unübersichtlich werden.
+Um die Ankopplung zur externen Schnittstellen wie Sensoren und Kamerasysteme von der übrigen Softwareentwicklung zu trennen, wird das Modul Drivers verwendet.</p>
 </div>
-<div class="sect2 arc42help">
-<h3 id="_common_2">8.5. <em>common</em></h3>
-
+<div class="imageblock">
+<div class="content">
+<img src="./images/DriversModule.png" alt="DriversModule">
+</div>
+<div class="title">Abbildung 18. Drivers Modul</div>
+</div>
+<div class="paragraph">
+<p>Die hier vorliegenden Dateien dienen als Hardwaretreiber, die das Einlesen und Verwalten von deren Datensätzen bewerkstelligen.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_guardian">8.6. <em>guardian</em></h3>
-
+<h3 id="_protocol_buffers">8.4. Protocol Buffers</h3>
+<div class="paragraph">
+<p>Zur Informationsübertragung werden an vielen Schnittstellen Protocol Buffers verwendet.
+Damit wird garantiert, dass ein leicht lesbares Datenformat verwendet wird, welches gleichzeitig effizient und gut erweiterbar ist.
+Es kann außerdem damit berücksichtigt werden, dass verschiedene Programmiersprachen (C++ und Python) zur Entwicklung verwendet werden können.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_drive">8.7. <em>drive</em></h3>
+<h3 id="_funktionale_abgrenzung">8.5. Funktionale Abgrenzung</h3>
+<div class="paragraph">
+<p>Im Laufe dieser Dokumentation wurde bereits viel auf die einzelnen Module eingegangen, in welche die Funktionen des Systems eingeteilt wurden.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/modules.png" alt="modules">
+</div>
+<div class="title">Abbildung 19. Einteilung von Funktionalitäten in Module</div>
+</div>
+<div class="paragraph">
+<p>Mithilfe von diesen wird die Abgrenzung der einzelnen Funktionalitäten bewerkstelligt.
+Damit folgt die Architektur den Prinzipien Seperation of Concerns und Lose Kopplung, da einzelne Aufgaben als Teillösungen umgesetzt wurden, deren Veränderungen keine unvorhersagbaren Einflüsse auf das Gesamtsystem haben.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1779,39 +1627,79 @@ Hier ist der Platz im Template, wo Sie derartige Themen geschlossen behandeln k�
 <div class="sect1">
 <h2 id="section-design-decisions">9. Entwurfsentscheidungen</h2>
 <div class="sectionbody">
-<div class="paragraph arc42help">
-<p>Ausführung von interessanten Architektur- oder Entwurfsentscheidungen inklusive der jeweiligen Begründung.</p>
+<div class="paragraph">
+<p>Im folgenden Kapitel wird eine interessante Entscheidung im Entwicklungsverlauf des Projektes genauer betrachtet</p>
 </div>
 <div class="sect2">
 <h3 id="_ros_vs_cyberrt">9.1. ROS vs CyberRT</h3>
-<div class="paragraph arc42help">
-<div class="title">Inhalt</div>
-<p>Wichtige, teure, große oder riskante Architektur- oder Entwurfsentscheidungen inklusive der jeweiligen Begründungen.
-Mit "Entscheidungen" meinen wir hier die Auswahl einer von mehreren Alternativen unter vorgegebenen Kriterien.</p>
+<div class="paragraph">
+<div class="title">Fragestellung</div>
+<p>Zur Entwicklung eines autonom fahrenden Fahrzeugs muss festgelegt weden, mithilfe welches Frameworks dies umgesetzt wird.
+Dieses muss verschiedene Funktionen umfassen und eine Programmbibliothek liefern, welche für diesen Anwendungsfall geeignet ist.</p>
 </div>
 <div class="paragraph">
-<p>Wägen Sie ab, inwiefern Sie Entscheidungen hier zentral beschreiben, oder wo eine lokale Beschreibung (z.B. in der Whitebox-Sicht von Bausteinen) sinnvoller ist.
-Vermeiden Sie Redundanz.
-Verweisen Sie evtl. auf Abschnitt 4, wo schon grundlegende strategische Entscheidungen beschrieben wurden.</p>
+<div class="title">Relevante Einflussfaktoren</div>
+<p>Funktionsumfang
+Programmbibliothek
+Anforderungen des Zielsystems</p>
 </div>
 <div class="paragraph">
-<div class="title">Motivation</div>
-<p>Stakeholder des Systems sollten wichtige Entscheidungen verstehen und nachvollziehen können.</p>
+<div class="title">Alternative: ROS</div>
+<p>Zum Beginn der Erarbeitung autonomer Fahrzeuge wurde als Framework ROS verwendet.
+Dieses, ursprünglich für Roboter entwickelte Framework (Robot Operating System) bietet grundlegende Funktionen und Bibliotheken, die für die Entwicklung technischer Anwendungen notwendig waren.
+Es zeichnet sich durch hohe Flexibilität aus, kommt jedoch bei Echtzeit-Anforderungen an seine Grenzen.
+Es ermöglicht eine Programmierung in Python und C++ und stellt somit eine gute Grundlage für die Entwicklung eigener Systeme dar.</p>
 </div>
 <div class="paragraph">
-<div class="title">Form</div>
-<p>Verschiedene Möglichkeiten:</p>
+<p>Bei der Zielsetzung, Level 4 autonomes Fahren umzusetzen, hat man sich jedoch aufgrund der fehlenden Berücksichtigung von Echtzeitanforderungen und einer Bibliothek,
+die nicht dediziert für autonomes Fahren entwickelt wurde, gegen eine Weiterverwendung von ROS entschieden.</p>
+</div>
+<div class="paragraph">
+<div class="title">Entscheidung: Entwicklung des eigenen Frameworks CyberRT</div>
+<p>Mit Apollo 3.5 wurde das eigens von Baidu entwickelte Framework CyberRT eingeführt.
+Diese auf hohe Performance ausgerichtete Umgebung, die explizit für das autonome Fahren entwickelt wurde, zeichnet sich durch hohe Nebenläufigkeit, geringe Latenz und hohen Datendurchsatz aus.
+Dies soll mehrere Vorteile mit sich bringen:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Liste oder Tabelle, nach Wichtigkeit und Tragweite der Entscheidungen geordnet</p>
+<p>Beschleunigte Entwicklung</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Vielzahl an Entwicklungstools</p>
 </li>
 <li>
-<p>ausführlicher in Form einzelner Unterkapitel je Entscheidung</p>
+<p>Große Anzahl an Sensortreibern</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>ADR (<a href="http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions">Architecture Decision Record</a>) für jede wichtige Entscheidung</p>
+<p>Einfacher Einsatz</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Effiziente und effektive Nachrichtenkommunikation</p>
+</li>
+<li>
+<p>Portable und weniger Abhängigkeiten</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Vereinfachte Implementierung in eigene Fahrzeuge</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Plug-and-Play-System</p>
+</li>
+<li>
+<p>ApolloAuto verwendet das default-open-source runtime framework</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1822,7 +1710,7 @@ Verweisen Sie evtl. auf Abschnitt 4, wo schon grundlegende strategische Entschei
 <div class="sect1">
 <h2 id="section-quality-scenarios">10. Qualitätsanforderungen</h2>
 <div class="sectionbody">
-<div class="paragraph arc42help">
+<div class="paragraph">
 <p>Dieser Abschnitt enthält die Qualitätsanforderungen als Qualitätsbaum mit Szenarien.</p>
 </div>
 <div class="paragraph">
@@ -1839,7 +1727,7 @@ Die wichtigsten davon haben Sie bereits in Abschnitt 1.2 (Qualitätsziele) hervo
 </div>
 <div class="sect2">
 <h3 id="_qualitätsbaum">10.1. Qualitätsbaum</h3>
-<div class="paragraph arc42help">
+<div class="paragraph">
 <div class="title">Inhalt</div>
 <p>Der Qualitätsbaum (à la ATAM) mit Qualitätsszenarien an den Blättern.</p>
 </div>
@@ -1864,7 +1752,7 @@ Die wichtigsten davon haben Sie bereits in Abschnitt 1.2 (Qualitätsziele) hervo
 </div>
 <div class="sect2">
 <h3 id="_qualitätsszenarien">10.2. Qualitätsszenarien</h3>
-<div class="paragraph arc42help">
+<div class="paragraph">
 <div class="title">Inhalt</div>
 <p>Konkretisierung der (in der Praxis oftmals vagen oder impliziten) Qualitätsanforderungen durch (Qualitäts-)Szenarien.</p>
 </div>
@@ -1905,20 +1793,23 @@ Beispiel: Eine zusätzliche Funktionalität wird implementiert oder die Anforder
 <div class="sect1">
 <h2 id="section-technical-risks">11. Risiken und technische Schulden</h2>
 <div class="sectionbody">
-<div class="paragraph arc42help">
+<div class="paragraph">
 <p>Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder technischen Schulden.</p>
 </div>
 <div class="sect2">
 <h3 id="_aufwand_der_implementierung">11.1. Aufwand der Implementierung</h3>
-<div class="paragraph arc42help">
+<div class="paragraph">
 <p>Es müssen hardwareseitig alle Voraussetzungen genau erfüllt werden, damit das Setup funktionieren kann.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_komplexes_gesamtsystem">11.2. Komplexes Gesamtsystem</h3>
-<div class="paragraph arc42help">
+<div class="paragraph">
 <p>(?-&#8594;) Für die Entwicklung des Gesamtsystems ist es von großer Bedeutung, sicherzustellen, dass durch Weiterentwicklungen dieses komplexe System nicht funktionsunfähig wird.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_ausstehende_implementierung_vieler_verkehrssituationen">11.3. Ausstehende Implementierung vieler Verkehrssituationen</h3>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -2002,13 +1893,66 @@ Beispiel: Eine zusätzliche Funktionalität wird implementiert oder die Anforder
 </div>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-Anhang">13. Anhang</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_erfahrungen_mit_apollo">13.1. Erfahrungen mit Apollo</h3>
+<div class="paragraph">
+<p>ApolloAuto ist als Anwendungsfall sehr interessant aber auch gleichermaßen umfangreich.
+Während wir uns mittlerweile sicher sind, grundlegende Konzepte und Strukturen verstanden zu haben,
+sind wir uns gleichermaßen sicher, dass viele Inhalte bei tieferem Einblick auch anders dargestellt werden sollten.
+Fünf iterative Durchgänge durch unsere Dokumentation, bei denen wir kritisch Punkte ausdiskutieren, würden daher wahrscheinlich fünf mal dazu führen,
+dass wir noch einige Sachen anders beschreiben.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_erfahrungen_mit_arc42">13.2. Erfahrungen mit Arc42</h3>
+<div class="paragraph">
+<p>Arc42 hat bei der Aufarbeitung von ApolloAuto sehr geholfen, da es eine Struktur bietet, nach welcher man sich durch das Gesamtsystem arbeiten kann.
+Die gestellten Fragestellungen sind sinnvoll angeordnet, um sich nach und nach tiefer einzuarbeiten.</p>
+</div>
+<div class="paragraph">
+<p>Bei der Beschreibung eines Gesamtsystems, an welchem man weder Erfahrungen sammeln konnte noch selbst mitgearbeitet hat, wie in der vorliegenden Aufgabenstellung, kommen jedoch mehrfach Probleme auf.
+Die Arbeitsweise ist grundsätzlich iterativ, da mit der Zeit viele Zusammenhänge immer besser verstanden werden und Fehler oder Unklarheiten auffallen.
+Dadurch, dass viele Kapitel inhaltlich direkt aufeinander aufbauen, bewirken späte Abänderungen große Überarbeitungen an der gesamten Dokumentation.
+So zieht sich beispielsweise eine falsch verstandene Schnittstelle in der Kontextabgrenzung eventuell durch alle Abbdildungen und Beschreibungen der nächsten drei Kapitel.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_erfahrungen_mit_doctoolchain">13.3. Erfahrungen mit docToolchain</h3>
+<div class="paragraph">
+<p>docToolchain empfanden wir als sehr interessant, da es nach anfänglicher Implementierung eine sehr übersichtliche Bearbeitung der
+Dokumentation in der Entwicklungsumgebung unserer Wahl ermöglichte - ganz unabhängig davon, ob das Eclipse oder Visual Studio ist.
+Die Einbindung von PlantUML-Diagrammen hielt uns leider etwas länger auf, als sie es wahrscheinlich sollte, da wir einige Kleinigkeiten übersehen haben.
+Aber auch hier gilt - nachdem man es einmal gemacht hat, war es eigentlich ganz einfach.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sonstige_anmerkungen">13.4. Sonstige Anmerkungen</h3>
+<div class="paragraph">
+<p>Insgesamt sind wir zwiegespaltener Meinung zu dieser Aufgabe.
+Der kombinierte Aufwand aus einer uns neuen Implementierung, einem sehr komplexen, zu beschreibenden Architektur und dem Umfang von Arc42 bringt uns zeitlich an die Grenzen.</p>
+</div>
+<div class="paragraph">
+<p>Gleichzeitig ist es schwer zu sagen, worauf man hätte verzichten sollen.
+Dass die Inhalte nicht nur kurz in der Vorlesung angesprochen wurden, sondern inklusive der Implementierung auf dem eigenen Computer bearbeitet werden mussten, hat für den Lerneffekt einen enormen Mehrwert.
+Auch dass in einem solchen Projekt ein sehr interessantes Anwendungsbeispiel integriert wird ist auch aus überfachlichem Interesse heraus sehr spannend.
+In der grundsätzlichen Konzeption ist das Projekt daher definitiv sinnvoll.
+Leider waren wir jedoch zeitlich zu oft gezwungen, Inhalte nicht in der Tiefe zu betrachten, wie wir es gerne gemacht hätten.
+Wenn es daher eine Möglichkeit gäbe, den Umfang etwas zu verkleinern oder die Abgabe außerhalb der Klausurenphase zu legen, dann würden sich die Probleme erübrigen.</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-17 15:45:03 +0200
+Last updated 2021-06-20 00:37:50 +0200
 </div>
 </div>
 </body>

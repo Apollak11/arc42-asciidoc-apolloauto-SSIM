@@ -1,0 +1,39 @@
+[[section-Anhang]]
+== Anhang
+
+=== Erfahrungen mit Apollo
+
+ApolloAuto ist als Anwendungsfall sehr interessant aber auch gleichermaßen umfangreich.
+Während wir uns mittlerweile sicher sind, grundlegende Konzepte und Strukturen verstanden zu haben,
+sind wir uns gleichermaßen sicher, dass viele Inhalte bei tieferem Einblick auch anders dargestellt werden sollten.
+Fünf iterative Durchgänge durch unsere Dokumentation, bei denen wir kritisch Punkte ausdiskutieren, würden daher wahrscheinlich fünf mal dazu führen,
+dass wir noch einige Sachen anders beschreiben.
+
+=== Erfahrungen mit Arc42
+
+Arc42 hat bei der Aufarbeitung von ApolloAuto sehr geholfen, da es eine Struktur bietet, nach welcher man sich durch das Gesamtsystem arbeiten kann.
+Die gestellten Fragestellungen sind sinnvoll angeordnet, um sich nach und nach tiefer einzuarbeiten.
+
+Bei der Beschreibung eines Gesamtsystems, an welchem man weder Erfahrungen sammeln konnte noch selbst mitgearbeitet hat, wie in der vorliegenden Aufgabenstellung, kommen jedoch mehrfach Probleme auf.
+Die Arbeitsweise ist grundsätzlich iterativ, da mit der Zeit viele Zusammenhänge immer besser verstanden werden und Fehler oder Unklarheiten auffallen.
+Dadurch, dass viele Kapitel inhaltlich direkt aufeinander aufbauen, bewirken späte Abänderungen große Überarbeitungen an der gesamten Dokumentation.
+So zieht sich beispielsweise eine falsch verstandene Schnittstelle in der Kontextabgrenzung eventuell durch alle Abbdildungen und Beschreibungen der nächsten drei Kapitel.
+
+=== Erfahrungen mit docToolchain
+
+docToolchain empfanden wir als sehr interessant, da es nach anfänglicher Implementierung eine sehr übersichtliche Bearbeitung der
+Dokumentation in der Entwicklungsumgebung unserer Wahl ermöglichte - ganz unabhängig davon, ob das Eclipse oder Visual Studio ist. 
+Die Einbindung von PlantUML-Diagrammen hielt uns leider etwas länger auf, als sie es wahrscheinlich sollte, da wir einige Kleinigkeiten übersehen haben.
+Aber auch hier gilt - nachdem man es einmal gemacht hat, war es eigentlich ganz einfach.
+
+=== Sonstige Anmerkungen
+
+Insgesamt sind wir zwiegespaltener Meinung zu dieser Aufgabe.
+Der kombinierte Aufwand aus einer uns neuen Implementierung, einem sehr komplexen, zu beschreibenden Architektur und dem Umfang von Arc42 bringt uns zeitlich an die Grenzen.
+
+Gleichzeitig ist es schwer zu sagen, worauf man hätte verzichten sollen.
+Dass die Inhalte nicht nur kurz in der Vorlesung angesprochen wurden, sondern inklusive der Implementierung auf dem eigenen Computer bearbeitet werden mussten, hat für den Lerneffekt einen enormen Mehrwert.
+Auch dass in einem solchen Projekt ein sehr interessantes Anwendungsbeispiel integriert wird ist auch aus überfachlichem Interesse heraus sehr spannend.
+In der grundsätzlichen Konzeption ist das Projekt daher definitiv sinnvoll.
+Leider waren wir jedoch zeitlich zu oft gezwungen, Inhalte nicht in der Tiefe zu betrachten, wie wir es gerne gemacht hätten.
+Wenn es daher eine Möglichkeit gäbe, den Umfang etwas zu verkleinern oder die Abgabe außerhalb der Klausurenphase zu legen, dann würden sich die Probleme erübrigen.

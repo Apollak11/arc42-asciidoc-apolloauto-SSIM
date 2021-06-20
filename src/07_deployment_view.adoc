@@ -9,6 +9,7 @@ In der Verteilungssicht wird auf den Betrieb von ApolloAuto eingegangen. Was ist
 
 Im Verteilungsdiagramm wird die Implementierung von ApolloAuto auf einem Ubuntu-PC aufgezeigt. Innerhalb dieses devices kommuniziert ApolloAuto mit keinen weiteren Programmen.
 
+.Deployment von ApolloAuto auf Ubuntu
 image::VerteilungssichtInfrastruktur.png[]
 
 Auf einem Ubuntu-PC ist zunächst die Laufzeit bzw. Entwicklungsumgebung zu installieren. Seit Apollo 3.5 wird dafür die speziell für ApolloAuto entwickelte Umgebung CyberRT verwendet, welche ROS abgelöst hat.

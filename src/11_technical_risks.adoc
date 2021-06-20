@@ -1,8 +1,5 @@
 [[section-technical-risks]]
 == Risiken und technische Schulden
-
-[role="arc42help"]
-
 Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder technischen Schulden.
 
 
@@ -20,13 +17,11 @@ Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken und/oder
 
 
 === Aufwand der Implementierung
-[role="arc42help"]
 Es müssen hardwareseitig alle Voraussetzungen genau erfüllt werden, damit das Setup funktionieren kann.
 
 
 === Komplexes Gesamtsystem
-[role="arc42help"]
 (?-->) Für die Entwicklung des Gesamtsystems ist es von großer Bedeutung, sicherzustellen, dass durch Weiterentwicklungen dieses komplexe System nicht funktionsunfähig wird.
 
 
-
+=== Ausstehende Implementierung vieler Verkehrssituationen
