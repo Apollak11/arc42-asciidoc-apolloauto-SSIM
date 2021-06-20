@@ -16,7 +16,7 @@ Dem liegt zugrunde, dass Geometriebeschreibungen sowohl für die Vorhersage vom 
 
 === Guardian
 Autonomes Fahren bedarf hohen Sicherheitsanforderungen. 
-Um zusätzliche Sicherheiten zu gewähren, ist es sinnvoll, ein Modul zu verwenden, welches eine Schutzfunktion einnimmt und bei kritischen fehlern oder Zuständen das Fahrzeug stoppt.
+Um zusätzliche Sicherheiten zu gewähren, ist es sinnvoll, ein Modul zu verwenden, welches eine Schutzfunktion einnimmt und bei kritischen Fehlern oder Zuständen das Fahrzeug stoppt.
 Solche Zustände können beispielsweise Fehlfunktionen von Sensoren oder erkannte Objekte im Fahrweg sein. Es greift dafür auf die Regelungsdaten des Control-Moduls, den Systemstatus vom Monitor und den Fahrzeugzustand zu.
 
 .Beispiel für Fehler, der einen Eingriff durch den Guardian verursacht

@@ -11,9 +11,9 @@ Zur Entwicklung eines autonom fahrenden Fahrzeugs muss festgelegt weden, mithilf
 Dieses muss verschiedene Funktionen umfassen und eine Programmbibliothek liefern, welche für diesen Anwendungsfall geeignet ist.
 
 .Relevante Einflussfaktoren
-Funktionsumfang
-Programmbibliothek
-Anforderungen des Zielsystems
+* Funktionsumfang
+* Programmbibliothek
+* Anforderungen des Zielsystems
 
 .Alternative: ROS
 

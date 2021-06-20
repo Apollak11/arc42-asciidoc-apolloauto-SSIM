@@ -3,7 +3,7 @@
 
 Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im Zusammenhang mit dem System verwenden.
 
-=== Eistieg
+=== Einstieg
 
 *Was ist autonomes Fahren?
 

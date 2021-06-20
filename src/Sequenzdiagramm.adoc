@@ -13,8 +13,9 @@ activate Perceiption
 activate Sensorik
 
 Sensorik -> Localization: GPS, IMU + LiDAR-Daten
-activate Localization
 deactivate Sensorik
+activate Localization
+
 
 Map -> Planning: Kartendaten
 activate Planning
